@@ -1,0 +1,956 @@
+com.cse.p2a.aseangame.P2AContext -> com.cse.p2a.aseangame.P2AContext:
+    android.content.Context context -> a
+    com.cse.p2a.aseangame.data.model.Country selectedCountry -> b
+    com.cse.p2a.aseangame.data.model.Session currentSession -> c
+    com.cse.p2a.aseangame.data.model.User cUser -> d
+    android.media.SoundPool soundPool -> e
+    int wrongAudio -> f
+    int rightAudio -> g
+    int finishAudio -> h
+    boolean isSoundOn -> i
+    void onCreate() -> onCreate
+    android.content.Context getContext() -> a
+    void setSelectedCountry(com.cse.p2a.aseangame.data.model.Country) -> a
+    com.cse.p2a.aseangame.data.model.Country getSelectedCountry() -> b
+    void setCurrentSession(com.cse.p2a.aseangame.data.model.Session) -> a
+    com.cse.p2a.aseangame.data.model.Session getCurrentSession() -> c
+    com.cse.p2a.aseangame.data.model.User getcUser() -> d
+    void setcUser(com.cse.p2a.aseangame.data.model.User) -> a
+    android.media.SoundPool getSoundPool() -> e
+    int getWrongAudio() -> f
+    int getRightAudio() -> g
+    void setSoundOn(boolean) -> a
+    boolean isSoundOn() -> h
+    int getFinishAudio() -> i
+    void setFinishAudio(int) -> a
+com.cse.p2a.aseangame.activity.FinishGameActivity -> com.cse.p2a.aseangame.activity.FinishGameActivity:
+    java.lang.String SCREENSHOTS_LOCATIONS -> a
+    int finishedSessionId -> b
+    android.widget.ImageView imgSharedFacebook -> c
+    android.widget.ImageView imgSharedP2A -> d
+    android.widget.TextView txtCountryName -> e
+    android.widget.TextView txtUsername -> f
+    android.widget.TextView txtTotalScore -> g
+    android.widget.TextView txtScoreDescription -> h
+    com.cse.p2a.aseangame.data.dao.SessionDAO sessionDAO -> i
+    com.cse.p2a.aseangame.data.model.Session mSession -> j
+    com.cse.p2a.aseangame.activity.FinishGameActivity$SubmitP2AScoreTask submitP2AScoreTask -> k
+    android.view.View mSubmitScoreStatusView -> l
+    android.view.View mFinishGameView -> m
+    android.widget.TextView mSubmitScoreStatusMessage -> n
+    java.lang.String mQuestionImagePath -> o
+    java.lang.String mQuestionScreenShotName -> p
+    com.cse.p2a.aseangame.activity.FinishGameActivity$UserLoginTask mAuthTask -> q
+    java.lang.String mEmail -> r
+    java.lang.String mPassword -> s
+    android.widget.EditText mUsernameView -> t
+    android.widget.EditText mPasswordView -> u
+    android.view.View mLoginStatusView -> v
+    android.widget.TextView mLoginStatusMessageView -> w
+    int screenWidth -> x
+    int screenHeight -> y
+    android.view.View$OnTouchListener motionButtonListener -> z
+    void onCreate(android.os.Bundle) -> onCreate
+    void loadFinishAudio() -> a
+    void onBackPressed() -> onBackPressed
+    void loadUI() -> b
+    void loadAnimations() -> c
+    void loadImageButtonAnimations(android.view.View,int) -> a
+    void attemptSessionFinish() -> d
+    void showDescriptionScoreOfTheSession(com.cse.p2a.aseangame.data.model.Session) -> a
+    void showTotalScoreOfTheSession(com.cse.p2a.aseangame.data.model.Session) -> b
+    void onClick(android.view.View) -> onClick
+    void goBackHomeScreen() -> e
+    void shareTotalScore(java.lang.String) -> a
+    void shareOnFacebook() -> f
+    void shareOnP2A() -> g
+    void showRequestLoginForm() -> h
+    void invokeSubmitP2AScoreService(com.cse.p2a.aseangame.data.model.User) -> a
+    void showSubmitScoreProgress(boolean) -> a
+    void takeScreenShot(android.view.View) -> a
+    void attemptLogin(android.app.AlertDialog) -> a
+    void showLoginProgress(boolean) -> b
+    android.view.View access$100(com.cse.p2a.aseangame.activity.FinishGameActivity) -> a
+    android.view.View access$200(com.cse.p2a.aseangame.activity.FinishGameActivity) -> b
+    android.view.View access$400(com.cse.p2a.aseangame.activity.FinishGameActivity) -> c
+    com.cse.p2a.aseangame.data.model.Session access$500(com.cse.p2a.aseangame.activity.FinishGameActivity) -> d
+    com.cse.p2a.aseangame.data.dao.SessionDAO access$600(com.cse.p2a.aseangame.activity.FinishGameActivity) -> e
+    com.cse.p2a.aseangame.activity.FinishGameActivity$SubmitP2AScoreTask access$702(com.cse.p2a.aseangame.activity.FinishGameActivity,com.cse.p2a.aseangame.activity.FinishGameActivity$SubmitP2AScoreTask) -> a
+    void access$800(com.cse.p2a.aseangame.activity.FinishGameActivity,boolean) -> a
+    java.lang.String access$900(com.cse.p2a.aseangame.activity.FinishGameActivity) -> f
+    java.lang.String access$1000(com.cse.p2a.aseangame.activity.FinishGameActivity) -> g
+    com.cse.p2a.aseangame.activity.FinishGameActivity$UserLoginTask access$1102(com.cse.p2a.aseangame.activity.FinishGameActivity,com.cse.p2a.aseangame.activity.FinishGameActivity$UserLoginTask) -> a
+    void access$1200(com.cse.p2a.aseangame.activity.FinishGameActivity,boolean) -> b
+    void access$1300(com.cse.p2a.aseangame.activity.FinishGameActivity,com.cse.p2a.aseangame.data.model.User) -> a
+    android.widget.EditText access$1400(com.cse.p2a.aseangame.activity.FinishGameActivity) -> h
+    android.widget.EditText access$1500(com.cse.p2a.aseangame.activity.FinishGameActivity) -> i
+com.cse.p2a.aseangame.activity.FinishGameActivity$1 -> com.cse.p2a.aseangame.activity.a:
+    android.app.AlertDialog val$alertDialog -> a
+    com.cse.p2a.aseangame.activity.FinishGameActivity this$0 -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.cse.p2a.aseangame.activity.FinishGameActivity$2 -> com.cse.p2a.aseangame.activity.b:
+    android.app.AlertDialog val$alertDialog -> a
+    com.cse.p2a.aseangame.activity.FinishGameActivity this$0 -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.cse.p2a.aseangame.activity.FinishGameActivity$3 -> com.cse.p2a.aseangame.activity.c:
+    android.app.AlertDialog val$loginAlertDialog -> a
+    com.cse.p2a.aseangame.activity.FinishGameActivity this$0 -> b
+    void onClick(android.view.View) -> onClick
+com.cse.p2a.aseangame.activity.FinishGameActivity$3$1 -> com.cse.p2a.aseangame.activity.d:
+    com.cse.p2a.aseangame.activity.FinishGameActivity$3 this$1 -> a
+    void run() -> run
+com.cse.p2a.aseangame.activity.FinishGameActivity$3$1$1 -> com.cse.p2a.aseangame.activity.e:
+    android.app.AlertDialog val$alertDialog -> a
+    com.cse.p2a.aseangame.activity.FinishGameActivity$3$1 this$2 -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.cse.p2a.aseangame.activity.FinishGameActivity$4 -> com.cse.p2a.aseangame.activity.f:
+    com.cse.p2a.aseangame.activity.FinishGameActivity this$0 -> a
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+com.cse.p2a.aseangame.activity.FinishGameActivity$5 -> com.cse.p2a.aseangame.activity.g:
+    boolean val$show -> a
+    com.cse.p2a.aseangame.activity.FinishGameActivity this$0 -> b
+    void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+com.cse.p2a.aseangame.activity.FinishGameActivity$6 -> com.cse.p2a.aseangame.activity.h:
+    boolean val$show -> a
+    com.cse.p2a.aseangame.activity.FinishGameActivity this$0 -> b
+    void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+com.cse.p2a.aseangame.activity.FinishGameActivity$7 -> com.cse.p2a.aseangame.activity.i:
+    boolean val$show -> a
+    com.cse.p2a.aseangame.activity.FinishGameActivity this$0 -> b
+    void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+com.cse.p2a.aseangame.activity.FinishGameActivity$8 -> com.cse.p2a.aseangame.activity.j:
+    boolean val$show -> a
+    com.cse.p2a.aseangame.activity.FinishGameActivity this$0 -> b
+    void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+com.cse.p2a.aseangame.activity.FinishGameActivity$SubmitP2AScoreTask -> com.cse.p2a.aseangame.activity.k:
+    com.cse.p2a.aseangame.activity.FinishGameActivity this$0 -> a
+    java.lang.Boolean doInBackground(com.cse.p2a.aseangame.data.model.User[]) -> a
+    void onPostExecute(java.lang.Boolean) -> a
+    void onCancelled() -> onCancelled
+    void onPostExecute(java.lang.Object) -> onPostExecute
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+com.cse.p2a.aseangame.activity.FinishGameActivity$SubmitP2AScoreTask$1 -> com.cse.p2a.aseangame.activity.l:
+    android.app.AlertDialog val$alertDialog -> a
+    com.cse.p2a.aseangame.activity.FinishGameActivity$SubmitP2AScoreTask this$1 -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.cse.p2a.aseangame.activity.FinishGameActivity$SubmitP2AScoreTask$2 -> com.cse.p2a.aseangame.activity.m:
+    android.app.AlertDialog val$alertDialog -> a
+    com.cse.p2a.aseangame.activity.FinishGameActivity$SubmitP2AScoreTask this$1 -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.cse.p2a.aseangame.activity.FinishGameActivity$UserLoginTask -> com.cse.p2a.aseangame.activity.n:
+    com.cse.p2a.aseangame.activity.FinishGameActivity this$0 -> a
+    java.lang.Boolean doInBackground(android.app.AlertDialog[]) -> a
+    void onPostExecute(java.lang.Boolean) -> a
+    void onCancelled() -> onCancelled
+    void onPostExecute(java.lang.Object) -> onPostExecute
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+com.cse.p2a.aseangame.activity.MainActivity -> com.cse.p2a.aseangame.activity.MainActivity:
+    android.view.animation.AccelerateInterpolator sAccelerator -> a
+    android.view.animation.DecelerateInterpolator sDecelerator -> b
+    android.view.animation.BounceInterpolator BOUNCE_INTERPOLATOR -> c
+    long BASE_DURATION -> d
+    android.view.ViewGroup mHomeView -> e
+    android.view.ViewGroup mSelectGameModeView -> f
+    android.widget.ImageView btnLogin -> g
+    android.widget.ImageView btnPlayNow -> h
+    com.cse.p2a.aseangame.activity.MainActivity$UserLoginTask mAuthTask -> i
+    java.lang.String mEmail -> j
+    java.lang.String mPassword -> k
+    com.cse.p2a.aseangame.data.model.User mUser -> l
+    android.widget.EditText mUsernameView -> m
+    android.widget.EditText mPasswordView -> n
+    android.view.View mLoginStatusView -> o
+    android.widget.TextView mLoginStatusMessageView -> p
+    int screenWidth -> q
+    int screenHeight -> r
+    android.widget.ImageView imgSoundControl -> s
+    android.widget.ImageView imgPointer -> t
+    android.view.View$OnTouchListener funButtonListener -> u
+    android.view.View$OnTouchListener pointerMotionListener -> v
+    android.view.ViewTreeObserver$OnPreDrawListener mOnPreDrawListener -> w
+    void onCreate(android.os.Bundle) -> onCreate
+    void loadUI() -> b
+    void onResume() -> onResume
+    void onClick(android.view.View) -> onClick
+    void loadButtonAnimation(android.view.View,int) -> a
+    void loadPlayNowActivity() -> c
+    void setupGameModeLayoutAnimation(android.view.View,float,long) -> a
+    void onStart() -> onStart
+    void loadSelectCountryActivity() -> d
+    void attemptLogin() -> a
+    void showLoginProgress(boolean) -> a
+    android.widget.ImageView access$000(com.cse.p2a.aseangame.activity.MainActivity) -> a
+    android.view.ViewGroup access$100(com.cse.p2a.aseangame.activity.MainActivity) -> b
+    android.view.ViewGroup access$202(com.cse.p2a.aseangame.activity.MainActivity,android.view.ViewGroup) -> a
+    android.view.ViewGroup access$200(com.cse.p2a.aseangame.activity.MainActivity) -> c
+    int access$300(com.cse.p2a.aseangame.activity.MainActivity) -> d
+    void access$400(com.cse.p2a.aseangame.activity.MainActivity,android.view.View,float,long) -> a
+    android.widget.ImageView access$500(com.cse.p2a.aseangame.activity.MainActivity) -> e
+    void access$600(com.cse.p2a.aseangame.activity.MainActivity,android.view.View,int) -> a
+    android.widget.ImageView access$700(com.cse.p2a.aseangame.activity.MainActivity) -> f
+    void access$800(com.cse.p2a.aseangame.activity.MainActivity) -> g
+    android.widget.ImageView access$900(com.cse.p2a.aseangame.activity.MainActivity) -> h
+    android.view.View access$1100(com.cse.p2a.aseangame.activity.MainActivity) -> i
+    java.lang.String access$1200(com.cse.p2a.aseangame.activity.MainActivity) -> j
+    java.lang.String access$1300(com.cse.p2a.aseangame.activity.MainActivity) -> k
+    com.cse.p2a.aseangame.data.model.User access$1402(com.cse.p2a.aseangame.activity.MainActivity,com.cse.p2a.aseangame.data.model.User) -> a
+    android.widget.EditText access$1500(com.cse.p2a.aseangame.activity.MainActivity) -> l
+    android.widget.EditText access$1600(com.cse.p2a.aseangame.activity.MainActivity) -> m
+    void access$1700(com.cse.p2a.aseangame.activity.MainActivity) -> n
+    void access$1800(com.cse.p2a.aseangame.activity.MainActivity) -> o
+    com.cse.p2a.aseangame.activity.MainActivity$UserLoginTask access$1902(com.cse.p2a.aseangame.activity.MainActivity,com.cse.p2a.aseangame.activity.MainActivity$UserLoginTask) -> a
+    void access$2000(com.cse.p2a.aseangame.activity.MainActivity,boolean) -> a
+com.cse.p2a.aseangame.activity.MainActivity$1 -> com.cse.p2a.aseangame.activity.o:
+    com.cse.p2a.aseangame.activity.MainActivity this$0 -> a
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+com.cse.p2a.aseangame.activity.MainActivity$10 -> com.cse.p2a.aseangame.activity.p:
+    boolean val$show -> a
+    com.cse.p2a.aseangame.activity.MainActivity this$0 -> b
+    void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+com.cse.p2a.aseangame.activity.MainActivity$2 -> com.cse.p2a.aseangame.activity.q:
+    com.cse.p2a.aseangame.activity.MainActivity this$0 -> a
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+com.cse.p2a.aseangame.activity.MainActivity$3 -> com.cse.p2a.aseangame.activity.r:
+    com.cse.p2a.aseangame.activity.MainActivity this$0 -> a
+    boolean onPreDraw() -> onPreDraw
+com.cse.p2a.aseangame.activity.MainActivity$3$1 -> com.cse.p2a.aseangame.activity.s:
+    com.cse.p2a.aseangame.activity.MainActivity$3 this$1 -> a
+    void run() -> run
+com.cse.p2a.aseangame.activity.MainActivity$4 -> com.cse.p2a.aseangame.activity.t:
+    com.cse.p2a.aseangame.activity.MainActivity this$0 -> a
+    boolean onEditorAction(android.widget.TextView,int,android.view.KeyEvent) -> onEditorAction
+com.cse.p2a.aseangame.activity.MainActivity$4$1 -> com.cse.p2a.aseangame.activity.u:
+    android.app.AlertDialog val$alertDialog -> a
+    com.cse.p2a.aseangame.activity.MainActivity$4 this$1 -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.cse.p2a.aseangame.activity.MainActivity$5 -> com.cse.p2a.aseangame.activity.v:
+    com.cse.p2a.aseangame.activity.MainActivity this$0 -> a
+    void run() -> run
+com.cse.p2a.aseangame.activity.MainActivity$5$1 -> com.cse.p2a.aseangame.activity.w:
+    android.app.AlertDialog val$alertDialog -> a
+    com.cse.p2a.aseangame.activity.MainActivity$5 this$1 -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.cse.p2a.aseangame.activity.MainActivity$6 -> com.cse.p2a.aseangame.activity.x:
+    com.cse.p2a.aseangame.activity.MainActivity this$0 -> a
+    void run() -> run
+com.cse.p2a.aseangame.activity.MainActivity$6$1 -> com.cse.p2a.aseangame.activity.y:
+    com.cse.p2a.aseangame.activity.MainActivity$6 this$1 -> a
+    void run() -> run
+com.cse.p2a.aseangame.activity.MainActivity$7 -> com.cse.p2a.aseangame.activity.z:
+    com.cse.p2a.aseangame.activity.MainActivity this$0 -> a
+    void run() -> run
+com.cse.p2a.aseangame.activity.MainActivity$8 -> com.cse.p2a.aseangame.activity.aa:
+    android.view.View val$view -> a
+    com.cse.p2a.aseangame.activity.MainActivity this$0 -> b
+    void onAnimationStart(android.animation.Animator) -> onAnimationStart
+com.cse.p2a.aseangame.activity.MainActivity$9 -> com.cse.p2a.aseangame.activity.ab:
+    boolean val$show -> a
+    com.cse.p2a.aseangame.activity.MainActivity this$0 -> b
+    void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+com.cse.p2a.aseangame.activity.MainActivity$UserLoginTask -> com.cse.p2a.aseangame.activity.ac:
+    com.cse.p2a.aseangame.activity.MainActivity this$0 -> a
+    java.lang.Boolean doInBackground(java.lang.Void[]) -> a
+    void onPostExecute(java.lang.Boolean) -> a
+    void onCancelled() -> onCancelled
+    void onPostExecute(java.lang.Object) -> onPostExecute
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+com.cse.p2a.aseangame.activity.PlayGameActivity -> com.cse.p2a.aseangame.activity.PlayGameActivity:
+    java.lang.String SCREENSHOTS_LOCATIONS -> a
+    java.lang.String LOG_TAG -> b
+    android.widget.TextView[] txtAnswer -> c
+    int animationTime -> d
+    com.cse.p2a.aseangame.data.dao.SessionDAO sessionDAO -> e
+    com.cse.p2a.aseangame.data.dao.SessionDetailDAO sessionDetailDAO -> f
+    java.util.ArrayList questions -> g
+    com.cse.p2a.aseangame.data.model.Session session -> h
+    java.util.ArrayList sessiondetails -> i
+    int currentQuestion -> j
+    int clicked -> k
+    int currentScore -> l
+    android.widget.TextView txtQuestion -> m
+    android.widget.TextView txtScore -> n
+    android.widget.TextView txtTimer -> o
+    android.widget.LinearLayout lnnQuestionContent -> p
+    android.widget.Button btnHome -> q
+    com.cse.p2a.aseangame.P2AContext appP2AContext -> r
+    long timer -> s
+    android.content.Intent intent -> t
+    android.widget.TextView txtBonusScore -> u
+    android.widget.ImageView imgShareOnFacebook -> v
+    java.lang.String mQuestionScreenShotName -> w
+    int bonusCount -> x
+    long beginQuestion -> y
+    java.lang.Thread timerThead -> z
+    android.view.View playGameView -> A
+    int screenWidth -> B
+    int screenHeight -> C
+    android.view.View$OnTouchListener motionButtonListener -> D
+    void onCreate(android.os.Bundle) -> onCreate
+    void onPostCreate(android.os.Bundle) -> onPostCreate
+    void playWrongSound() -> b
+    void playRightSound() -> c
+    void newSession() -> d
+    void loadOldSession() -> e
+    void loadInterfaceObject() -> f
+    void loadRandomQuestions(int) -> a
+    void setContent() -> g
+    void finishGame(int) -> b
+    void resetText() -> h
+    void updateTimerText() -> i
+    void saveCurrentSession(com.cse.p2a.aseangame.data.model.Session) -> a
+    void onClick(android.view.View) -> onClick
+    void shareQuestion(java.lang.String) -> a
+    void invokeSharingIntentOnFacebook() -> j
+    void onTrimMemory(int) -> onTrimMemory
+    void loadImageButtonAnimations(android.view.View,int) -> a
+    void onBackPressed() -> onBackPressed
+    void takeScreenShot(android.view.View) -> a
+    java.lang.Thread getTimerThead() -> a
+    void setTimerThead(java.lang.Thread) -> a
+    long access$002(com.cse.p2a.aseangame.activity.PlayGameActivity,long) -> a
+    long access$000(com.cse.p2a.aseangame.activity.PlayGameActivity) -> a
+    void access$100(com.cse.p2a.aseangame.activity.PlayGameActivity) -> b
+    long access$200(com.cse.p2a.aseangame.activity.PlayGameActivity) -> c
+    android.widget.TextView[] access$300(com.cse.p2a.aseangame.activity.PlayGameActivity) -> d
+    int access$404(com.cse.p2a.aseangame.activity.PlayGameActivity) -> e
+    int access$500(com.cse.p2a.aseangame.activity.PlayGameActivity) -> f
+    int access$400(com.cse.p2a.aseangame.activity.PlayGameActivity) -> g
+    android.widget.TextView access$600(com.cse.p2a.aseangame.activity.PlayGameActivity) -> h
+    int access$402(com.cse.p2a.aseangame.activity.PlayGameActivity,int) -> a
+    int access$508(com.cse.p2a.aseangame.activity.PlayGameActivity) -> i
+    int access$702(com.cse.p2a.aseangame.activity.PlayGameActivity,int) -> b
+    int access$700(com.cse.p2a.aseangame.activity.PlayGameActivity) -> j
+    int access$800(com.cse.p2a.aseangame.activity.PlayGameActivity) -> k
+    java.util.ArrayList access$900(com.cse.p2a.aseangame.activity.PlayGameActivity) -> l
+    com.cse.p2a.aseangame.data.dao.SessionDetailDAO access$1000(com.cse.p2a.aseangame.activity.PlayGameActivity) -> m
+    void access$1100(com.cse.p2a.aseangame.activity.PlayGameActivity) -> n
+    int access$808(com.cse.p2a.aseangame.activity.PlayGameActivity) -> o
+    android.widget.LinearLayout access$1200(com.cse.p2a.aseangame.activity.PlayGameActivity) -> p
+    void access$1300(com.cse.p2a.aseangame.activity.PlayGameActivity) -> q
+    com.cse.p2a.aseangame.data.model.Session access$1400(com.cse.p2a.aseangame.activity.PlayGameActivity) -> r
+    void access$1500(com.cse.p2a.aseangame.activity.PlayGameActivity,com.cse.p2a.aseangame.data.model.Session) -> a
+    void access$1600(com.cse.p2a.aseangame.activity.PlayGameActivity,int) -> c
+    void access$1700(com.cse.p2a.aseangame.activity.PlayGameActivity) -> s
+    void access$1800(com.cse.p2a.aseangame.activity.PlayGameActivity,android.view.View,int) -> a
+    void access$1900(com.cse.p2a.aseangame.activity.PlayGameActivity,java.lang.String) -> a
+com.cse.p2a.aseangame.activity.PlayGameActivity$1 -> com.cse.p2a.aseangame.activity.ad:
+    com.cse.p2a.aseangame.activity.PlayGameActivity this$0 -> a
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+com.cse.p2a.aseangame.activity.PlayGameActivity$2 -> com.cse.p2a.aseangame.activity.ae:
+    com.cse.p2a.aseangame.activity.PlayGameActivity this$0 -> a
+    void run() -> run
+com.cse.p2a.aseangame.activity.PlayGameActivity$2$1 -> com.cse.p2a.aseangame.activity.af:
+    com.cse.p2a.aseangame.activity.PlayGameActivity$2 this$1 -> a
+    void run() -> run
+com.cse.p2a.aseangame.activity.PlayGameActivity$3 -> com.cse.p2a.aseangame.activity.ag:
+    int[] val$points -> a
+    int val$currentAnswer -> b
+    android.app.Activity val$curActivity -> c
+    com.cse.p2a.aseangame.activity.PlayGameActivity this$0 -> d
+    void onClick(android.view.View) -> onClick
+com.cse.p2a.aseangame.activity.PlayGameActivity$3$1 -> com.cse.p2a.aseangame.activity.ah:
+    com.cse.p2a.aseangame.activity.PlayGameActivity$3 this$1 -> a
+    void run() -> run
+com.cse.p2a.aseangame.activity.PlayGameActivity$4 -> com.cse.p2a.aseangame.activity.ai:
+    int val$currentAnswer -> a
+    int[] val$points -> b
+    android.app.Activity val$curActivity -> c
+    com.cse.p2a.aseangame.activity.PlayGameActivity this$0 -> d
+    void onClick(android.view.View) -> onClick
+com.cse.p2a.aseangame.activity.PlayGameActivity$4$1 -> com.cse.p2a.aseangame.activity.aj:
+    com.cse.p2a.aseangame.activity.PlayGameActivity$4 this$1 -> a
+    void run() -> run
+com.cse.p2a.aseangame.activity.PlayGameActivity$5 -> com.cse.p2a.aseangame.activity.ak:
+    com.cse.p2a.aseangame.activity.PlayGameActivity this$0 -> a
+    void run() -> run
+com.cse.p2a.aseangame.activity.PlayGameActivity$6 -> com.cse.p2a.aseangame.activity.al:
+    android.view.View val$v -> a
+    com.cse.p2a.aseangame.activity.PlayGameActivity this$0 -> b
+    void run() -> run
+com.cse.p2a.aseangame.activity.PlayGameActivity$7 -> com.cse.p2a.aseangame.activity.am:
+    android.app.AlertDialog val$alertDialog -> a
+    com.cse.p2a.aseangame.activity.PlayGameActivity this$0 -> b
+    void onClick(android.view.View) -> onClick
+com.cse.p2a.aseangame.activity.PlayGameActivity$8 -> com.cse.p2a.aseangame.activity.an:
+    android.app.AlertDialog val$alertDialog -> a
+    com.cse.p2a.aseangame.activity.PlayGameActivity this$0 -> b
+    void onClick(android.view.View) -> onClick
+com.cse.p2a.aseangame.activity.SelectCountryActivity -> com.cse.p2a.aseangame.activity.SelectCountryActivity:
+    java.util.ArrayList locationCoordinates -> a
+    com.cse.p2a.aseangame.data.dao.CountryDAO selectCountryDAO -> b
+    android.widget.ImageView imgVietnamLocation -> c
+    android.widget.ImageView imgLaoLocation -> d
+    android.widget.ImageView imgCambodiaLocation -> e
+    android.widget.ImageView imgThailandLocation -> f
+    android.widget.ImageView imgPhilippinesLocation -> g
+    android.widget.ImageView imgIndonesiaLocation -> h
+    android.widget.ImageView imgSingaporeLocation -> i
+    android.widget.ImageView imgMalaysiaLocation -> j
+    android.widget.ImageView imgBruneiLocation -> k
+    android.widget.ImageView imgMyanmarLocation -> l
+    com.cse.p2a.aseangame.data.model.Country mSelectedCountry -> m
+    com.cse.p2a.aseangame.data.model.Session mSession -> n
+    com.cse.p2a.aseangame.activity.SelectCountryActivity$SyncQuestionTask mSyncQuestionTask -> o
+    com.cse.p2a.aseangame.activity.SelectCountryActivity$GetTopAllScoreTask mGetTopAllScoreTask -> p
+    android.view.View mSyncStatusView -> q
+    android.view.View mSelectCountryView -> r
+    android.widget.ImageView btnSyncQuestion -> s
+    android.widget.ImageView btnHelp -> t
+    android.widget.ImageView btnLeaderBoard -> u
+    com.cse.p2a.aseangame.data.model.User mUser -> v
+    com.cse.p2a.aseangame.utils.ImageFragment mImageFragment -> w
+    com.cse.p2a.aseangame.utils.TextFragment mTextFragment -> x
+    android.view.View mDarkHoverView -> y
+    boolean mDidSlideOut -> z
+    boolean mIsAnimating -> A
+    int screenWidth -> B
+    int screenHeight -> C
+    android.view.ViewTreeObserver$OnPreDrawListener mOnPreDrawListener -> D
+    void onBackStackChanged() -> onBackStackChanged
+    void onAnimationEnd() -> a
+    void onCreate(android.os.Bundle) -> onCreate
+    void onPause() -> onPause
+    void onResume() -> onResume
+    void loadInteractedUI() -> d
+    void loadLocationsUI() -> e
+    void loadLocationAnimations() -> f
+    void setupBounceAnimation(android.view.View,float,float,long) -> a
+    void onClickLocationAnimation(android.view.View) -> a
+    void setupRealHighestSessionScoreOfCountry(com.cse.p2a.aseangame.utils.QuickAction,java.util.List) -> a
+    void playGame() -> g
+    void onStart() -> onStart
+    void onStop() -> onStop
+    com.cse.p2a.aseangame.data.model.Session findSessionOfUser(int,int) -> a
+    void getCoordinatesOfLocations(int,int) -> b
+    void onClick(android.view.View) -> onClick
+    void onClickLeaderBoard(android.widget.ImageView) -> a
+    void onBackPressed() -> onBackPressed
+    com.cse.p2a.aseangame.data.model.Country getmSelectedCountry() -> b
+    void setmSelectedCountry(com.cse.p2a.aseangame.data.model.Country) -> a
+    java.util.List nonFinishCountriesOfUser(int) -> a
+    void onRestart() -> onRestart
+    void loadButtonAnimation(android.view.View,int) -> a
+    void startSyncQuestion() -> h
+    void showSyncProgress(boolean) -> a
+    void isFirstTimeBundledData() -> i
+    void InvokeDataServices() -> j
+    void insertDataFromServices() -> k
+    void insertContinueDataFromServices() -> l
+    void loadBundledData() -> m
+    void startSyncNewQuestions() -> c
+    void switchFragments() -> n
+    void slideBack(android.animation.Animator$AnimatorListener) -> a
+    void slideForward(android.animation.Animator$AnimatorListener) -> b
+    android.view.View access$000(com.cse.p2a.aseangame.activity.SelectCountryActivity) -> a
+    void access$100(com.cse.p2a.aseangame.activity.SelectCountryActivity) -> b
+    int access$200(com.cse.p2a.aseangame.activity.SelectCountryActivity) -> c
+    int access$300(com.cse.p2a.aseangame.activity.SelectCountryActivity) -> d
+    void access$400(com.cse.p2a.aseangame.activity.SelectCountryActivity,int,int) -> a
+    void access$500(com.cse.p2a.aseangame.activity.SelectCountryActivity) -> e
+    void access$600(com.cse.p2a.aseangame.activity.SelectCountryActivity) -> f
+    void access$700(com.cse.p2a.aseangame.activity.SelectCountryActivity) -> g
+    android.view.View access$800(com.cse.p2a.aseangame.activity.SelectCountryActivity) -> h
+    void access$900(com.cse.p2a.aseangame.activity.SelectCountryActivity) -> i
+    com.cse.p2a.aseangame.utils.TextFragment access$1000(com.cse.p2a.aseangame.activity.SelectCountryActivity) -> j
+    boolean access$1102(com.cse.p2a.aseangame.activity.SelectCountryActivity,boolean) -> a
+    com.cse.p2a.aseangame.activity.SelectCountryActivity$SyncQuestionTask access$1202(com.cse.p2a.aseangame.activity.SelectCountryActivity,com.cse.p2a.aseangame.activity.SelectCountryActivity$SyncQuestionTask) -> a
+    void access$1300(com.cse.p2a.aseangame.activity.SelectCountryActivity,boolean) -> b
+com.cse.p2a.aseangame.activity.SelectCountryActivity$1 -> com.cse.p2a.aseangame.activity.ao:
+    com.cse.p2a.aseangame.activity.SelectCountryActivity this$0 -> a
+    boolean onPreDraw() -> onPreDraw
+com.cse.p2a.aseangame.activity.SelectCountryActivity$1$1 -> com.cse.p2a.aseangame.activity.ap:
+    com.cse.p2a.aseangame.activity.SelectCountryActivity$1 this$1 -> a
+    void run() -> run
+com.cse.p2a.aseangame.activity.SelectCountryActivity$10 -> com.cse.p2a.aseangame.activity.aq:
+    android.app.AlertDialog val$alertDialog -> a
+    com.cse.p2a.aseangame.activity.SelectCountryActivity this$0 -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.cse.p2a.aseangame.activity.SelectCountryActivity$11 -> com.cse.p2a.aseangame.activity.ar:
+    android.app.AlertDialog val$alertDialog -> a
+    com.cse.p2a.aseangame.activity.SelectCountryActivity this$0 -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.cse.p2a.aseangame.activity.SelectCountryActivity$12 -> com.cse.p2a.aseangame.activity.as:
+    android.app.AlertDialog val$alertDialog -> a
+    com.cse.p2a.aseangame.activity.SelectCountryActivity this$0 -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.cse.p2a.aseangame.activity.SelectCountryActivity$13 -> com.cse.p2a.aseangame.activity.at:
+    com.cse.p2a.aseangame.activity.SelectCountryActivity this$0 -> a
+    void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+com.cse.p2a.aseangame.activity.SelectCountryActivity$14 -> com.cse.p2a.aseangame.activity.au:
+    com.cse.p2a.aseangame.activity.SelectCountryActivity this$0 -> a
+    void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+com.cse.p2a.aseangame.activity.SelectCountryActivity$2 -> com.cse.p2a.aseangame.activity.av:
+    android.view.View val$view -> a
+    com.cse.p2a.aseangame.activity.SelectCountryActivity this$0 -> b
+    void onAnimationStart(android.animation.Animator) -> onAnimationStart
+com.cse.p2a.aseangame.activity.SelectCountryActivity$3 -> com.cse.p2a.aseangame.activity.aw:
+    com.cse.p2a.aseangame.utils.QuickAction val$quickAction -> a
+    com.cse.p2a.aseangame.activity.SelectCountryActivity this$0 -> b
+    void onItemClick(com.cse.p2a.aseangame.utils.QuickAction,int,int) -> a
+com.cse.p2a.aseangame.activity.SelectCountryActivity$3$1 -> com.cse.p2a.aseangame.activity.ax:
+    com.cse.p2a.aseangame.activity.SelectCountryActivity$3 this$1 -> a
+    void run() -> run
+com.cse.p2a.aseangame.activity.SelectCountryActivity$4 -> com.cse.p2a.aseangame.activity.ay:
+    com.cse.p2a.aseangame.utils.QuickAction val$quickAction -> a
+    com.cse.p2a.aseangame.activity.SelectCountryActivity this$0 -> b
+    void onItemClick(com.cse.p2a.aseangame.utils.QuickAction,int,int) -> a
+com.cse.p2a.aseangame.activity.SelectCountryActivity$4$1 -> com.cse.p2a.aseangame.activity.az:
+    com.cse.p2a.aseangame.activity.SelectCountryActivity$4 this$1 -> a
+    void run() -> run
+com.cse.p2a.aseangame.activity.SelectCountryActivity$5 -> com.cse.p2a.aseangame.activity.ba:
+    com.cse.p2a.aseangame.utils.QuickAction val$quickAction -> a
+    com.cse.p2a.aseangame.activity.SelectCountryActivity this$0 -> b
+    void onItemClick(com.cse.p2a.aseangame.utils.QuickAction,int,int) -> a
+com.cse.p2a.aseangame.activity.SelectCountryActivity$5$1 -> com.cse.p2a.aseangame.activity.bb:
+    com.cse.p2a.aseangame.activity.SelectCountryActivity$5 this$1 -> a
+    void run() -> run
+com.cse.p2a.aseangame.activity.SelectCountryActivity$6 -> com.cse.p2a.aseangame.activity.bc:
+    android.app.AlertDialog val$alertDialog -> a
+    com.cse.p2a.aseangame.activity.SelectCountryActivity this$0 -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+com.cse.p2a.aseangame.activity.SelectCountryActivity$8 -> com.cse.p2a.aseangame.activity.bd:
+    boolean val$show -> a
+    com.cse.p2a.aseangame.activity.SelectCountryActivity this$0 -> b
+    void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+com.cse.p2a.aseangame.activity.SelectCountryActivity$9 -> com.cse.p2a.aseangame.activity.be:
+    boolean val$show -> a
+    com.cse.p2a.aseangame.activity.SelectCountryActivity this$0 -> b
+    void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+com.cse.p2a.aseangame.activity.SelectCountryActivity$GetTopAllScoreTask -> com.cse.p2a.aseangame.activity.bf:
+    android.app.ProgressDialog pd -> a
+    android.content.Context ctx -> c
+    java.util.List leaders -> d
+    com.cse.p2a.aseangame.utils.QuickAction mQuickAction -> e
+    com.cse.p2a.aseangame.activity.SelectCountryActivity this$0 -> b
+    void onPreExecute() -> onPreExecute
+    void onProgressUpdate(java.lang.Integer[]) -> a
+    java.lang.Boolean doInBackground(java.lang.Void[]) -> a
+    void onCancelled() -> onCancelled
+    void onPostExecute(java.lang.Boolean) -> a
+    void onProgressUpdate(java.lang.Object[]) -> onProgressUpdate
+    void onPostExecute(java.lang.Object) -> onPostExecute
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+    com.cse.p2a.aseangame.utils.QuickAction access$1400(com.cse.p2a.aseangame.activity.SelectCountryActivity$GetTopAllScoreTask) -> a
+com.cse.p2a.aseangame.activity.SelectCountryActivity$GetTopAllScoreTask$1 -> com.cse.p2a.aseangame.activity.bg:
+    com.cse.p2a.aseangame.utils.ActionItem val$item -> a
+    com.cse.p2a.aseangame.activity.SelectCountryActivity$GetTopAllScoreTask this$1 -> b
+    void run() -> run
+com.cse.p2a.aseangame.activity.SelectCountryActivity$SyncQuestionTask -> com.cse.p2a.aseangame.activity.bh:
+    android.app.ProgressDialog pd -> d
+    android.content.Context ctx -> e
+    com.cse.p2a.aseangame.data.dao.QuestionDAO questionDAO -> a
+    com.cse.p2a.aseangame.data.dao.AnswerDAO answerDAO -> b
+    com.cse.p2a.aseangame.activity.SelectCountryActivity this$0 -> c
+    void onPreExecute() -> onPreExecute
+    void onProgressUpdate(java.lang.Integer[]) -> a
+    java.lang.Boolean doInBackground(java.lang.Void[]) -> a
+    void insertAnswerOfQuestion(com.cse.p2a.aseangame.data.model.Question) -> a
+    void onPostExecute(java.lang.Boolean) -> a
+    void onCancelled() -> onCancelled
+    void onProgressUpdate(java.lang.Object[]) -> onProgressUpdate
+    void onPostExecute(java.lang.Object) -> onPostExecute
+    java.lang.Object doInBackground(java.lang.Object[]) -> doInBackground
+com.cse.p2a.aseangame.data.P2AGameDbHelper -> com.cse.p2a.aseangame.data.a:
+    java.lang.String DATABASE_PATH -> b
+    java.lang.String LOG_TAG -> a
+    com.cse.p2a.aseangame.data.P2AGameDbHelper mInstance -> c
+    android.content.Context myContext -> d
+    android.database.sqlite.SQLiteDatabase myDataBase -> e
+    com.cse.p2a.aseangame.data.P2AGameDbHelper getInstance(android.content.Context) -> a
+    boolean checkDatabaseFixed() -> c
+    void close() -> close
+    void copyDataBase() -> d
+    void createDataBase() -> e
+    int deleteRecordInDB(java.lang.String,java.lang.String,java.lang.String[]) -> a
+    long insertRecordsInDB(java.lang.String,java.lang.String,android.content.ContentValues) -> a
+    void onCreate(android.database.sqlite.SQLiteDatabase) -> onCreate
+    void onUpgrade(android.database.sqlite.SQLiteDatabase,int,int) -> onUpgrade
+    void dropToGetNewQuestions() -> a
+    void openDataBase() -> b
+    android.database.Cursor selectRecordsFromDB(java.lang.String,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,java.lang.String,java.lang.String) -> a
+    java.util.ArrayList selectRecordsFromDBList(java.lang.String,java.lang.String[]) -> a
+    java.util.ArrayList selectRecordsFromDBList(java.lang.String,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String,java.lang.String,java.lang.String) -> b
+    int updateRecordsInDB(java.lang.String,android.content.ContentValues,java.lang.String,java.lang.String[]) -> a
+com.cse.p2a.aseangame.data.adapter.P2AGameDbAdapter -> com.cse.p2a.aseangame.data.a.a:
+    com.cse.p2a.aseangame.data.P2AGameDbHelper dbHelper -> a
+    java.lang.String[] levelColumn -> b
+    java.util.ArrayList getRandomQuestion(int) -> a
+    java.util.ArrayList getAnswer(int) -> b
+    int[] getPoint(int) -> c
+    com.cse.p2a.aseangame.data.model.Question getQuestion(int) -> d
+    com.cse.p2a.aseangame.data.model.Session getSession(int) -> e
+    java.util.ArrayList getSessionDetails(int) -> f
+com.cse.p2a.aseangame.data.constants.CommonConsts -> com.cse.p2a.aseangame.data.b.a:
+    java.lang.String getSqlDeleteTable(java.lang.String) -> a
+com.cse.p2a.aseangame.data.dao.AnswerDAO -> com.cse.p2a.aseangame.data.c.a:
+    com.cse.p2a.aseangame.data.dao.AnswerDAO instance -> c
+    android.content.Context ctxApp -> a
+    com.cse.p2a.aseangame.data.P2AGameDbHelper p2aDb -> b
+    com.cse.p2a.aseangame.data.dao.AnswerDAO getInstance() -> a
+    long insertAnswer(com.cse.p2a.aseangame.data.model.Answer) -> a
+    java.util.List getAnswersOfQuestion(int) -> a
+com.cse.p2a.aseangame.data.dao.CountryDAO -> com.cse.p2a.aseangame.data.c.b:
+    com.cse.p2a.aseangame.data.dao.CountryDAO instance -> c
+    android.content.Context ctxApp -> a
+    com.cse.p2a.aseangame.data.P2AGameDbHelper p2aDb -> b
+    com.cse.p2a.aseangame.data.dao.CountryDAO getInstance() -> a
+    com.cse.p2a.aseangame.data.model.Country findCountryById(java.lang.String) -> a
+com.cse.p2a.aseangame.data.dao.QuestionDAO -> com.cse.p2a.aseangame.data.c.c:
+    com.cse.p2a.aseangame.data.dao.QuestionDAO instance -> c
+    android.content.Context ctxApp -> a
+    com.cse.p2a.aseangame.data.P2AGameDbHelper p2aDb -> b
+    com.cse.p2a.aseangame.data.dao.QuestionDAO getInstance() -> a
+    long insertQuestion(com.cse.p2a.aseangame.data.model.Question) -> a
+com.cse.p2a.aseangame.data.dao.SessionDAO -> com.cse.p2a.aseangame.data.c.d:
+    com.cse.p2a.aseangame.data.dao.SessionDAO instance -> b
+    com.cse.p2a.aseangame.data.P2AGameDbHelper p2aDb -> a
+    com.cse.p2a.aseangame.data.dao.SessionDAO getInstance() -> a
+    long insertSession(com.cse.p2a.aseangame.data.model.Session) -> a
+    int updateSession(com.cse.p2a.aseangame.data.model.Session) -> b
+    java.util.List find5HighestScoreSessionOfCountry(int) -> a
+    com.cse.p2a.aseangame.data.model.Session findFinishedSessionById(int) -> b
+    java.util.List findCountriesNonFinish(int) -> c
+    boolean isHighestScoreOfThisCountry(int,int,int) -> a
+    java.util.Set getFinishedCountryOfUser(int) -> d
+    com.cse.p2a.aseangame.data.model.Session findSessionByUserId(int,int) -> a
+com.cse.p2a.aseangame.data.dao.SessionDetailDAO -> com.cse.p2a.aseangame.data.c.e:
+    com.cse.p2a.aseangame.data.dao.SessionDetailDAO instance -> b
+    com.cse.p2a.aseangame.data.P2AGameDbHelper p2aDb -> a
+    com.cse.p2a.aseangame.data.dao.SessionDetailDAO getInstance() -> a
+    long insertSessionDetail(com.cse.p2a.aseangame.data.model.SessionDetail) -> a
+    int updateSessionDetail(com.cse.p2a.aseangame.data.model.SessionDetail) -> b
+    int deleteSessionDetail(int) -> a
+com.cse.p2a.aseangame.data.dao.UserDAO -> com.cse.p2a.aseangame.data.c.f:
+    com.cse.p2a.aseangame.data.dao.UserDAO instance -> c
+    android.content.Context ctxApp -> a
+    com.cse.p2a.aseangame.data.P2AGameDbHelper p2aDb -> b
+    com.cse.p2a.aseangame.data.dao.UserDAO getInstance() -> a
+    long insertUser(com.cse.p2a.aseangame.data.model.User) -> a
+    boolean isDuplicatedUser(com.cse.p2a.aseangame.data.model.User) -> b
+    com.cse.p2a.aseangame.data.model.User getAnonymous() -> b
+    com.cse.p2a.aseangame.data.model.User findP2AUser(int) -> a
+    com.cse.p2a.aseangame.data.model.User findUserLogged(java.lang.String,java.lang.String) -> a
+    long updateUser(com.cse.p2a.aseangame.data.model.User) -> c
+com.cse.p2a.aseangame.data.model.Answer -> com.cse.p2a.aseangame.data.model.a:
+    int _answer_id -> a
+    int _question_id -> b
+    java.lang.String _answer_content -> c
+    java.lang.Boolean _is_true -> d
+    void set_answer_id(int) -> a
+    int get_question_id() -> a
+    void set_question_id(int) -> b
+    java.lang.String get_answer_content() -> b
+    void set_answer_content(java.lang.String) -> a
+    java.lang.Boolean get_is_true() -> c
+    void set_is_true(java.lang.Boolean) -> a
+    java.util.List parserAnswerJson(java.lang.String,int) -> a
+com.cse.p2a.aseangame.data.model.Country -> com.cse.p2a.aseangame.data.model.Country:
+    java.lang.String LOG_TAG -> a
+    int _country_id -> b
+    java.lang.String _country_name -> c
+    android.os.Parcelable$Creator CREATOR -> CREATOR
+    int get_country_id() -> a
+    void set_country_id(int) -> a
+    java.lang.String get_country_name() -> b
+    void set_country_name(java.lang.String) -> a
+    int describeContents() -> describeContents
+    void writeToParcel(android.os.Parcel,int) -> writeToParcel
+com.cse.p2a.aseangame.data.model.Country$1 -> com.cse.p2a.aseangame.data.model.b:
+    com.cse.p2a.aseangame.data.model.Country createFromParcel(android.os.Parcel) -> a
+    com.cse.p2a.aseangame.data.model.Country[] newArray(int) -> a
+    java.lang.Object[] newArray(int) -> newArray
+    java.lang.Object createFromParcel(android.os.Parcel) -> createFromParcel
+com.cse.p2a.aseangame.data.model.LeaderBoard -> com.cse.p2a.aseangame.data.model.c:
+    java.lang.String loggedName -> a
+    java.lang.String nameOfInstitute -> b
+    int totalScore -> c
+    java.lang.String getLoggedName() -> a
+    java.lang.String getNameOfInstitute() -> b
+    int getTotalScore() -> c
+    java.util.List parserLeaderBoardJson(java.lang.String) -> a
+com.cse.p2a.aseangame.data.model.Question -> com.cse.p2a.aseangame.data.model.d:
+    int _question_id -> a
+    int _group_id -> b
+    int _level_id -> c
+    java.lang.String _question_content -> d
+    java.util.List answers -> e
+    int get_question_id() -> a
+    void set_question_id(int) -> a
+    int get_group_id() -> b
+    void set_group_id(int) -> b
+    int get_level_id() -> c
+    void set_level_id(int) -> c
+    java.lang.String get_question_content() -> d
+    void set_question_content(java.lang.String) -> a
+    java.util.List getAnswers() -> e
+    void setAnswers(java.util.List) -> a
+    java.util.List parserQuestionsJson(java.lang.String) -> b
+com.cse.p2a.aseangame.data.model.Session -> com.cse.p2a.aseangame.data.model.e:
+    java.lang.String LOG_TAG -> a
+    int _session_id -> b
+    int _session_country_id -> c
+    int _session_user_id -> d
+    java.lang.String _session_token -> e
+    long _session_begin_date -> f
+    long _session_end_date -> g
+    long _session_spend_time -> h
+    int _session_finish -> i
+    long _session_total_score -> j
+    int _session_num_lastest_correct -> k
+    int get_session_id() -> a
+    void set_session_id(int) -> a
+    int get_session_country_id() -> b
+    void set_session_country_id(int) -> b
+    int get_session_user_id() -> c
+    void set_session_user_id(int) -> c
+    java.lang.String get_session_token() -> d
+    void set_session_token(java.lang.String) -> a
+    long get_session_begin_date() -> e
+    void set_session_begin_date(long) -> a
+    long get_session_end_date() -> f
+    void set_session_end_date(long) -> b
+    long get_session_spend_time() -> g
+    void set_session_spend_time(long) -> c
+    int get_session_finish() -> h
+    void set_session_finish(int) -> d
+    long get_session_total_score() -> i
+    void set_session_total_score(long) -> d
+    int get_session_num_lastest_correct() -> j
+    void set_session_num_lastest_correct(int) -> e
+com.cse.p2a.aseangame.data.model.SessionDetail -> com.cse.p2a.aseangame.data.model.f:
+    int _session_detail_id -> a
+    int _session_detail_answer_id_1 -> b
+    int _session_detail_answer_id_2 -> c
+    int _session_detail_answer_id_3 -> d
+    int _session_detail_answer_id_4 -> e
+    long _session_detail_create_date -> f
+    int _session_detail_order_number -> g
+    int _session_detail_question_id -> h
+    float _session_detail_score -> i
+    int _session_detail_session_id -> j
+    int get_session_detail_answer_id_1() -> a
+    int get_session_detail_answer_id_2() -> b
+    int get_session_detail_answer_id_3() -> c
+    int get_session_detail_answer_id_4() -> d
+    long get_session_detail_create_date() -> e
+    int get_session_detail_id() -> f
+    int get_session_detail_order_number() -> g
+    int get_session_detail_question_id() -> h
+    float get_session_detail_score() -> i
+    int get_session_detail_session_id() -> j
+    void set_session_detail_answer_id_1(int) -> a
+    void set_session_detail_answer_id_2(int) -> b
+    void set_session_detail_answer_id_3(int) -> c
+    void set_session_detail_answer_id_4(int) -> d
+    void set_session_detail_create_date(long) -> a
+    void set_session_detail_id(int) -> e
+    void set_session_detail_order_number(int) -> f
+    void set_session_detail_question_id(int) -> g
+    void set_session_detail_score(float) -> a
+    void set_session_detail_session_id(int) -> h
+com.cse.p2a.aseangame.data.model.User -> com.cse.p2a.aseangame.data.model.g:
+    int _user_id -> a
+    int _user_active -> b
+    java.lang.String _user_birthday -> c
+    java.lang.String _user_country_name -> d
+    java.lang.String _user_created_date -> e
+    java.lang.String _user_email -> f
+    java.lang.String _user_first_name -> g
+    int _user_group_id -> h
+    java.lang.String _user_img_url -> i
+    java.lang.String _user_institute_name -> j
+    java.lang.String _user_last_name -> k
+    java.lang.String _user_middle_name -> l
+    java.lang.String _user_name -> m
+    java.lang.String _user_password -> n
+    float _user_point -> o
+    java.lang.String _user_title -> p
+    int _user_type -> q
+    java.lang.String _user_token -> r
+    int get_user_id() -> a
+    void set_user_id(int) -> a
+    int get_user_active() -> b
+    void set_user_active(int) -> b
+    java.lang.String get_user_birthday() -> c
+    void set_user_birthday(java.lang.String) -> a
+    java.lang.String get_user_country_name() -> d
+    void set_user_country_name(java.lang.String) -> b
+    java.lang.String get_user_created_date() -> e
+    void set_user_created_date(java.lang.String) -> c
+    java.lang.String get_user_email() -> f
+    void set_user_email(java.lang.String) -> d
+    java.lang.String get_user_first_name() -> g
+    void set_user_first_name(java.lang.String) -> e
+    int get_user_group_id() -> h
+    void set_user_group_id(int) -> c
+    java.lang.String get_user_img_url() -> i
+    void set_user_img_url(java.lang.String) -> f
+    java.lang.String get_user_institute_name() -> j
+    void set_user_institute_name(java.lang.String) -> g
+    java.lang.String get_user_last_name() -> k
+    void set_user_last_name(java.lang.String) -> h
+    java.lang.String get_user_middle_name() -> l
+    void set_user_middle_name(java.lang.String) -> i
+    java.lang.String get_user_name() -> m
+    void set_user_name(java.lang.String) -> j
+    java.lang.String get_user_password() -> n
+    void set_user_password(java.lang.String) -> k
+    float get_user_point() -> o
+    void set_user_point(float) -> a
+    java.lang.String get_user_title() -> p
+    void set_user_title(java.lang.String) -> l
+    int get_user_type() -> q
+    void set_user_type(int) -> d
+    java.lang.String get_user_token() -> r
+    void set_user_token(java.lang.String) -> m
+    com.cse.p2a.aseangame.data.model.User parseUserJson(java.lang.String) -> n
+com.cse.p2a.aseangame.utils.ActionItem -> com.cse.p2a.aseangame.utils.a:
+    android.graphics.drawable.Drawable icon -> a
+    java.lang.String title -> b
+    java.lang.String score -> c
+    int actionId -> d
+    boolean sticky -> e
+    java.lang.String getTitle() -> a
+    android.graphics.drawable.Drawable getIcon() -> b
+    int getActionId() -> c
+    void setSticky(boolean) -> a
+    boolean isSticky() -> d
+    java.lang.String getScore() -> e
+    void setScore(java.lang.String) -> a
+com.cse.p2a.aseangame.utils.FractionalLinearLayout -> com.cse.p2a.aseangame.utils.FractionalLinearLayout:
+    float mYFraction -> a
+    int mScreenHeight -> b
+    void onSizeChanged(int,int,int,int) -> onSizeChanged
+    float getYFraction() -> getYFraction
+    void setYFraction(float) -> setYFraction
+com.cse.p2a.aseangame.utils.GeneralHelper -> com.cse.p2a.aseangame.utils.b:
+    java.lang.String HexForByte(byte) -> a
+    java.lang.String HexForBytes(byte[]) -> a
+    java.lang.String HexMD5ForString(java.lang.String) -> a
+    boolean hasConnection() -> a
+    void sleepForInSecs(java.lang.Integer) -> a
+com.cse.p2a.aseangame.utils.ImageFragment -> com.cse.p2a.aseangame.utils.ImageFragment:
+    android.view.View$OnClickListener clickListener -> a
+    android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+com.cse.p2a.aseangame.utils.ImageUtils -> com.cse.p2a.aseangame.utils.c:
+    int calculateInSampleSize(android.graphics.BitmapFactory$Options,int,int) -> a
+    android.graphics.Bitmap decodeSampledBitmapFromResource(android.content.res.Resources,int,int,int) -> a
+com.cse.p2a.aseangame.utils.OnTextFragmentAnimationEndListener -> com.cse.p2a.aseangame.utils.d:
+    void onAnimationEnd() -> a
+com.cse.p2a.aseangame.utils.P2AClientServiceProvider -> com.cse.p2a.aseangame.utils.e:
+    com.cse.p2a.aseangame.utils.P2AClientServiceProvider instance -> c
+    int responsedCode -> d
+    org.apache.http.impl.client.DefaultHttpClient defaultClient -> a
+    java.lang.String originalServicePath -> b
+    android.content.Context context -> e
+    com.cse.p2a.aseangame.utils.P2AClientServiceProvider getInstance(android.content.Context) -> a
+    int getResponsedCode() -> a
+    void setResponsedCode(int) -> a
+    org.apache.http.impl.client.DefaultHttpClient getDefaultClient() -> b
+    java.lang.String getOriginalServicePath() -> c
+com.cse.p2a.aseangame.utils.P2ASharedSystemPreferences -> com.cse.p2a.aseangame.utils.f:
+    boolean getFirstTimeInstallationFlag(android.content.Context) -> a
+    void setFirstTimeInstallationFlag(android.content.Context,boolean) -> a
+    void setAuthenticatedFlag(android.content.Context,boolean) -> b
+    boolean getPassedAllCountriesFlag(android.content.Context) -> b
+    void setPassedAllCountriesFlag(android.content.Context,boolean) -> c
+    void setCurrentUserName(android.content.Context,java.lang.String) -> a
+    void setCurrentPassword(android.content.Context,java.lang.String) -> b
+    void setUserCreatedDate(android.content.Context,java.lang.String) -> c
+    java.lang.String getToken(android.content.Context) -> c
+    void setToken(android.content.Context,java.lang.String) -> d
+    void setUserIdPassedAllCountried(android.content.Context,java.lang.String) -> e
+    java.lang.String getUserIdPassedAllCountries(android.content.Context) -> d
+com.cse.p2a.aseangame.utils.PopupWindows -> com.cse.p2a.aseangame.utils.g:
+    android.content.Context mContext -> a
+    android.widget.PopupWindow mWindow -> b
+    android.view.View mRootView -> c
+    android.graphics.drawable.Drawable mBackground -> d
+    android.view.WindowManager mWindowManager -> e
+    void onDismiss() -> onDismiss
+    void onShow() -> a
+    void preShow() -> b
+    void setContentView(android.view.View) -> a
+    void dismiss() -> c
+com.cse.p2a.aseangame.utils.PopupWindows$1 -> com.cse.p2a.aseangame.utils.h:
+    com.cse.p2a.aseangame.utils.PopupWindows this$0 -> a
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
+com.cse.p2a.aseangame.utils.QuickAction -> com.cse.p2a.aseangame.utils.i:
+    android.view.View mRootView -> f
+    android.widget.ImageView mArrowUp -> g
+    android.widget.ImageView mArrowDown -> h
+    android.view.LayoutInflater mInflater -> i
+    android.view.ViewGroup mTrack -> j
+    android.widget.ScrollView mScroller -> k
+    com.cse.p2a.aseangame.utils.QuickAction$OnActionItemClickListener mItemClickListener -> l
+    com.cse.p2a.aseangame.utils.QuickAction$OnDismissListener mDismissListener -> m
+    java.util.List actionItems -> n
+    boolean mDidAction -> o
+    int mChildPos -> p
+    int mInsertPos -> q
+    int mAnimStyle -> r
+    int mOrientation -> s
+    int rootWidth -> t
+    com.cse.p2a.aseangame.utils.ActionItem getActionItem(int) -> a
+    void setRootViewId(int) -> b
+    void setAnimStyle(int) -> c
+    void setOnActionItemClickListener(com.cse.p2a.aseangame.utils.QuickAction$OnActionItemClickListener) -> a
+    void addActionItem(com.cse.p2a.aseangame.utils.ActionItem) -> a
+    void show(android.view.View) -> b
+    void setAnimationStyle(int,int,boolean) -> a
+    void showArrow(int,int) -> a
+    void onDismiss() -> onDismiss
+    com.cse.p2a.aseangame.utils.QuickAction$OnActionItemClickListener access$000(com.cse.p2a.aseangame.utils.QuickAction) -> a
+    boolean access$102(com.cse.p2a.aseangame.utils.QuickAction,boolean) -> a
+com.cse.p2a.aseangame.utils.QuickAction$1 -> com.cse.p2a.aseangame.utils.j:
+    int val$pos -> a
+    int val$actionId -> b
+    com.cse.p2a.aseangame.utils.QuickAction this$0 -> c
+    void onClick(android.view.View) -> onClick
+com.cse.p2a.aseangame.utils.QuickAction$OnActionItemClickListener -> com.cse.p2a.aseangame.utils.k:
+    void onItemClick(com.cse.p2a.aseangame.utils.QuickAction,int,int) -> a
+com.cse.p2a.aseangame.utils.QuickAction$OnDismissListener -> com.cse.p2a.aseangame.utils.l:
+    void onDismiss() -> a
+com.cse.p2a.aseangame.utils.TextFragment -> com.cse.p2a.aseangame.utils.m:
+    android.widget.ImageView imgHelp01 -> a
+    android.view.View$OnClickListener clickListener -> b
+    com.cse.p2a.aseangame.utils.OnTextFragmentAnimationEndListener mListener -> c
+    android.graphics.Bitmap mCurrentBitmap -> d
+    int mCurrentIndex -> e
+    int screenWidth -> f
+    int screenHeight -> g
+    android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle) -> onCreateView
+    void setClickListener(android.view.View$OnClickListener) -> a
+    android.animation.Animator onCreateAnimator(int,boolean,int) -> onCreateAnimator
+    void setOnTextFragmentAnimationEnd(com.cse.p2a.aseangame.utils.OnTextFragmentAnimationEndListener) -> a
+    int access$000(com.cse.p2a.aseangame.utils.TextFragment) -> a
+    int access$100(com.cse.p2a.aseangame.utils.TextFragment) -> b
+com.cse.p2a.aseangame.utils.TextFragment$1 -> com.cse.p2a.aseangame.utils.n:
+    int[] val$helpImageIDs -> a
+    com.cse.p2a.aseangame.utils.TextFragment this$0 -> b
+    void onClick(android.view.View) -> onClick
+com.cse.p2a.aseangame.utils.TextFragment$2 -> com.cse.p2a.aseangame.utils.o:
+    com.cse.p2a.aseangame.utils.TextFragment this$0 -> a
+    void onAnimationEnd(android.animation.Animator) -> onAnimationEnd
+libs.BCrypt -> a.a:
+    int[] P_orig -> a
+    int[] S_orig -> b
+    int[] bf_crypt_ciphertext -> c
+    char[] base64_code -> d
+    byte[] index_64 -> e
+    int[] P -> f
+    int[] S -> g
+    java.lang.String encode_base64(byte[],int) -> a
+    byte char64(char) -> a
+    byte[] decode_base64(java.lang.String,int) -> a
+    void encipher(int[],int) -> a
+    int streamtoword(byte[],int[]) -> a
+    void init_key() -> b
+    void key(byte[]) -> a
+    void ekskey(byte[],byte[]) -> a
+    byte[] crypt_raw(byte[],byte[],int) -> a
+    java.lang.String hashpw(java.lang.String,java.lang.String) -> a
+    java.lang.String gensalt(int,java.security.SecureRandom) -> a
+    java.lang.String gensalt(int) -> a
+    java.lang.String gensalt() -> a
+    boolean checkpw(java.lang.String,java.lang.String) -> b

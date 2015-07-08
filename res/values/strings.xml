@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ASEAN Game</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="title_activity_select_country">SelectCountryActivity</string>
+    <string name="help_content_desc">Help</string>
+    <!--<string name="vietnam_location">Socialist Republic of Viet Nam</string>
+    <string name="lao_location">Lao PDR</string>
+    <string name="cambodia_location">Kingdom of Cambodia</string>
+    <string name="thailand_location">Kingdom of Thailand</string>
+    <string name="philippines_location">Republic of the Philippines</string>
+    <string name="indonesia_location">Republic of Indonesia</string>
+    <string name="singapore_location">Republic of Singapore</string>
+    <string name="malaysia_location">Malaysia</string>
+    <string name="brunei_location">Brunei Darussalam</string>
+    <string name="myanmar_location">Union of Myanmar</string>
+    <string name="asean_location">Asean</string>-->
+    <string name="vietnam_location">10</string>
+    <string name="lao_location">4</string>
+    <string name="cambodia_location">2</string>
+    <string name="thailand_location">9</string>
+    <string name="philippines_location">7</string>
+    <string name="indonesia_location">3</string>
+    <string name="singapore_location">8</string>
+    <string name="malaysia_location">5</string>
+    <string name="brunei_location">1</string>
+    <string name="myanmar_location">6</string>
+    <string name="asean_location">11</string>
+
+    <string name="title_activity_play_game">PlayGameActivity</string>
+    <string name="play_action_title">Play Now</string>
+    <string name="play_game_home_btn_title">Home</string>
+
+    <string name="login_label">Login</string>
+    <string name="username_label">Username</string>
+    <string name="password_label">Password</string>
+
+    <!-- System preferences flag -->
+    <string name="pref_key_flag_installation">first_time_installation_flag</string>
+    <string name="pref_key_flag_authenticated">authentication_flag</string>
+    <string name="pref_key_flag_username">username_flag</string>
+    <string name="pref_key_flag_password">password_flag</string>
+    <string name="pref_key_flag_user_created_timestamp">user_created_timestamp_flag</string>
+    <string name="pref_key_flag_passed_all_countries">passed_all_countries_flag</string>
+    <string name="pref_key_token">token_flag</string>
+    <string name="pref_key_user_passed_all_countries">user_passed_all_countries_flag</string>
+
+    <string name="password_hint">Please enter your password</string>
+    <string name="username_hint">Please enter your username</string>
+    <string name="continious_Right_Answer">continiousRightAnswer</string>
+    <string name="timer_image_description">Timer Image</string>
+
+    <string name="sound_turn_off">Turn off</string>
+    <string name="sound_turn_on">Turn on</string>
+
+    <string name="pointer_name">pointer</string>
+</resources>

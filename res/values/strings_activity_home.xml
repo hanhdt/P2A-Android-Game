@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_sync_question">Sync Question</string>
+    <string name="sync_question_progress_label">Loading questions</string>
+    <string name="leader_board_down_label">Leader Board Down</string>
+    <string name="leader_board_up_label">Leader Board Up</string>
+</resources>

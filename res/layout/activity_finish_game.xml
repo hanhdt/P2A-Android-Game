@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- Submit progress -->
+    <LinearLayout
+        android:id="@+id/submit_score_status"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/submit_score_status_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/finish_game_submit_score_message"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+    <!-- Login progress -->
+    <LinearLayout
+        android:id="@+id/finish_game_login_status"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/finish_game_login_status_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/login_progress_signing_in"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+    <!-- Finish Game Frame -->
+
+    <LinearLayout
+        android:id="@+id/finish_game_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/finish_game_header"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="15"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <!--<ImageView-->
+            <!--android:id="@+id/finish_game_home_btn"-->
+            <!--android:layout_width="38dp"-->
+            <!--android:layout_height="36dp"-->
+            <!--android:src="@drawable/home_button"-->
+            <!--android:contentDescription="@string/finish_game_home_btn_title"-->
+            <!--android:adjustViewBounds="true" android:layout_marginRight="5dp"/>-->
+            <TextView
+                android:id="@+id/finish_game_country_txt"
+                style="@android:style/TextAppearance.Holo.Widget.TextView.PopupMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/finish_game_country_name"
+                android:textColor="#efefef"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/finish_game_content"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="55"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/finish_game_username_txt"
+                style="@android:style/TextAppearance.Holo.Widget.TextView.PopupMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="40"
+                android:alpha="0.8"
+                android:text="@string/finish_game_title"
+                android:textColor="@color/popover_title_color"
+                android:textSize="24sp"
+                android:textStyle="bold|italic"
+                android:visibility="visible"/>
+
+            <ImageView
+                android:id="@+id/finish_game_share_on_facebook"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:contentDescription="@string/action_share_on_facebook"
+                android:src="@drawable/ic_social_facebook"
+                android:visibility="invisible" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="42"
+                android:text="@string/finish_game_title"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/finish_game_share_on_p2a"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:contentDescription="@string/action_share_on_p2a"
+                android:src="@drawable/p2a_button"
+                android:visibility="invisible" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="40"
+                android:text="@string/finish_game_title"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/finish_game_footer"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="30"
+            android:gravity="center_horizontal|top"
+            android:orientation="vertical"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:id="@+id/finish_game_total_score"
+                style="@android:style/TextAppearance.Holo.Widget.TextView.PopupMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.8"
+                android:text="@string/finish_game_total_score"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:textStyle="bold|italic"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/finish_game_score_description"
+                style="@android:style/TextAppearance.Holo.Widget.TextView.PopupMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:alpha="0.8"
+                android:gravity="center"
+                android:text="@string/finish_game_high_score"
+                android:textColor="@color/popover_title_color"
+                android:textSize="18sp"
+                android:textStyle="bold|italic"
+                android:visibility="visible"/>
+        </LinearLayout>
+    </LinearLayout>
+</merge>

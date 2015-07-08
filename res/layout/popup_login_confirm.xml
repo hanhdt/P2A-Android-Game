@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout_food_size"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:background="@android:color/transparent">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:background="#d36294">
+
+        <View
+                android:layout_width="20dp"
+                android:layout_height="match_parent"/>
+
+        <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_label"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ffffff" android:textStyle="bold"/>
+    </LinearLayout>
+
+    <ScrollView
+            android:id="@+id/login_form"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                style="@style/LoginFormContainer"
+                android:orientation="vertical">
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/username_login_fixed_font"
+                    android:contentDescription="@string/username_label"/>
+            <EditText
+                    android:id="@+id/login_confirm_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:keepScreenOn="true"
+                    android:textColor="#000000" android:textSize="14sp"
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.Widget.EditText"
+                    android:hint="@string/username_hint"/>
+
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/password_login_fixed_font"
+                    android:contentDescription="@string/password_label"/>
+
+            <EditText
+                    android:id="@+id/login_confirm_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeActionId="@+id/login"
+                    android:imeActionLabel="@string/action_sign_in_short"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:selectAllOnFocus="true" android:textIsSelectable="false"
+                    android:textColor="@color/black_overlay"
+                    android:hint="@string/password_hint" android:textSize="14sp"/>
+
+            <ImageView
+                    android:id="@+id/login_confirm_button"
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="false"
+                    android:contentDescription="@string/login_label"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:src="@drawable/login_button_final" android:paddingBottom="2dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

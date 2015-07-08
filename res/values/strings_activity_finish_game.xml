@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="finish_game_title">Finish Game</string>
+    <string name="action_share_on_facebook">Share on Facebook</string>
+    <string name="action_share_on_p2a">Share on P2A</string>
+    <string name="finish_game_total_score">Total Score</string>
+    <string name="finish_game_high_score">High Score</string>
+    <string name="finish_game_submit_score_message">Submit score to P2A server</string>
+    <string name="finish_game_country_name">Country Name</string>
+    <string name="finish_game_home_btn_title">Home</string>
+</resources>

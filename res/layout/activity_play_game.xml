@@ -1,0 +1,197 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/play_game_frame"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_alignParentBottom="true"
+              android:layout_alignParentLeft="true"
+              android:layout_alignParentRight="true"
+              android:layout_alignParentTop="true"
+              android:orientation="vertical"
+              tools:context=".PlayGameActivity">
+
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="54"
+            android:paddingBottom="3dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="2dp">
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="match_parent"
+                      android:background="@drawable/timer_shape">
+            <ImageView
+                    android:id="@+id/play_timer_image"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:alpha="0.9"
+                    android:contentDescription="@string/timer_image_description"
+                    android:src="@drawable/clock1"/>
+
+            <TextView
+                    android:id="@+id/txtTimer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Medium Text"
+                    android:textAlignment="center"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp"/>
+        </LinearLayout>
+
+
+        <TextView
+                android:id="@+id/play_game_country_name_txt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="Country Name"
+                android:textColor="@android:color/background_light"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+        <TextView
+                android:id="@+id/play_bonus_score_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center_horizontal"
+                android:padding="2dp"
+                android:text="+30"
+                android:textColor="@android:color/holo_orange_light"
+                android:textStyle="bold"
+                android:visibility="invisible"/>
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/play_action_title"
+                android:src="@drawable/ic_total_score"/>
+
+        <TextView
+                android:id="@+id/txtScore"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="Medium Text"
+                android:textColor="#ffffff"
+                android:textSize="18sp" android:textStyle="bold"/>
+
+        <Button
+                android:id="@+id/play_game_home_btn"
+                android:layout_width="38dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/home_button"
+                android:contentDescription="@string/play_game_home_btn_title"
+                android:visibility="visible" android:paddingBottom="5dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/play_game_center_frame"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="192"
+            android:gravity="bottom"
+            android:orientation="vertical">
+        <ImageView
+                android:id="@+id/play_game_share_on_facebook_btn"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/action_share_on_facebook"
+                android:src="@drawable/ic_social_facebook"
+                android:visibility="invisible"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/lnnQuestionContent"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="200"
+            android:orientation="vertical">
+
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dip"
+                android:layout_weight="72"
+                android:background="@drawable/spantext_purple_big"
+                android:paddingLeft="50dp" android:paddingTop="8dp" android:paddingBottom="8dp"
+                android:paddingRight="50dp">
+
+            <TextView
+                    android:id="@+id/txtQuestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:maxLines="3"
+                    android:text="Medium Text"
+                    android:textColor="#ffffff" android:gravity="center_vertical"/>
+        </LinearLayout>
+
+        <View
+                android:layout_width="fill_parent"
+                android:layout_height="0dip"
+                android:layout_weight="12"/>
+
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dip"
+                android:layout_weight="52">
+
+            <TextView
+                    android:id="@+id/txtAnswerA"
+                    android:layout_width="0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="180"
+                    android:background="@drawable/spantext_purple"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="22dp"
+                    android:text="Small Text"/>
+
+            <TextView
+                    android:id="@+id/txtAnswerB"
+                    android:layout_width="0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="180"
+                    android:background="@drawable/spantext_purple"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="22dp"
+                    android:text="Small Text"/>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dip"
+                android:layout_weight="50">
+
+            <TextView
+                    android:id="@+id/txtAnswerC"
+                    android:layout_width="0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="180"
+                    android:background="@drawable/spantext_purple"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="22dp"
+                    android:text="Small Text"/>
+
+            <TextView
+                    android:id="@+id/txtAnswerD"
+                    android:layout_width="0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="180"
+                    android:background="@drawable/spantext_purple"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="22dp"
+                    android:text="Small Text"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_weight="9"/>
+
+</LinearLayout>
