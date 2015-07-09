@@ -1362,8 +1362,13 @@ public class SelectCountryActivity extends Activity implements
             // Request GET questions service here.
             final P2AClientServiceProvider p2aClientServiceProvider =
                     P2AClientServiceProvider.getInstance(SelectCountryActivity.this);
-
-            // Build Volley request
+            try {
+                // Simulate network access.
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                return null;
+            }
+            /* Build Volley request */
             final String url = p2aClientServiceProvider.getOriginalServicePath() + "topScoreAllHandler.ashx";
 
             JsonObjectRequest request = new JsonObjectRequest(
