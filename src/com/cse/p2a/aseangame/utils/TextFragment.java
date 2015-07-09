@@ -26,6 +26,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
 import com.cse.p2a.aseangame.R;
 
 public class TextFragment extends Fragment {
@@ -36,6 +37,9 @@ public class TextFragment extends Fragment {
     Bitmap mCurrentBitmap = null;
     int mCurrentIndex = 0;
     private int screenWidth, screenHeight;
+
+    public TextFragment() {
+    }
 
     public TextFragment(int sWidth, int sHeight) {
         screenWidth = sWidth;
@@ -88,7 +92,7 @@ public class TextFragment extends Fragment {
 
     @Override
     public Animator onCreateAnimator(int transit, boolean enter, int nextAnim) {
-        int id = enter ? R.animator.slide_fragment_in : R.animator.slide_fragment_out;
+        int id = enter ? R.anim.slide_fragment_in : R.anim.slide_fragment_out;
         final Animator anim = AnimatorInflater.loadAnimator(getActivity(), id);
         if (enter) {
             anim.addListener(new AnimatorListenerAdapter() {

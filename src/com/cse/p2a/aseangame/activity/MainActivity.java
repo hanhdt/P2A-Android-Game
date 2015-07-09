@@ -1,6 +1,11 @@
 package com.cse.p2a.aseangame.activity;
 
-import android.animation.*;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
+import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityOptions;
@@ -13,9 +18,20 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.*;
+import android.view.Display;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.animation.*;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.BounceInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -30,13 +46,20 @@ import com.cse.p2a.aseangame.P2AContext;
 import com.cse.p2a.aseangame.R;
 import com.cse.p2a.aseangame.data.dao.UserDAO;
 import com.cse.p2a.aseangame.data.model.User;
-import com.cse.p2a.aseangame.utils.*;
-import libs.BCrypt;
+import com.cse.p2a.aseangame.utils.GeneralHelper;
+import com.cse.p2a.aseangame.utils.ImageUtils;
+import com.cse.p2a.aseangame.utils.P2AClientServiceProvider;
+import com.cse.p2a.aseangame.utils.P2AHttpHeaderConstants;
+import com.cse.p2a.aseangame.utils.P2AResponsedCodePattern;
+import com.cse.p2a.aseangame.utils.P2ASharedSystemPreferences;
+
 import org.json.JSONObject;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import libs.BCrypt;
 
 public class MainActivity extends Activity implements OnClickListener {
     public static final String TAG = MainActivity.class.getSimpleName();
@@ -270,7 +293,7 @@ public class MainActivity extends Activity implements OnClickListener {
                 @Override
                 public void run() {
                     // Setup login animation
-                    loadButtonAnimation(btnLogin, R.animator.fadein);
+                    loadButtonAnimation(btnLogin, R.anim.fadein);
                     // Attempt Login activity
                     // Check internet connection first
                     if (GeneralHelper.hasConnection()) {
@@ -296,7 +319,7 @@ public class MainActivity extends Activity implements OnClickListener {
                 @Override
                 public void run() {
                     // Setup play now animation
-                    loadButtonAnimation(btnPlayNow, R.animator.fadein);
+                    loadButtonAnimation(btnPlayNow, R.anim.fadein);
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -338,8 +361,8 @@ public class MainActivity extends Activity implements OnClickListener {
         final Intent selectCountryIntent = new Intent(MainActivity.this,
                 SelectCountryActivity.class);
         final Bundle translateBundle = ActivityOptions.makeCustomAnimation(
-                MainActivity.this, R.animator.slide_in_left,
-                R.animator.slide_out_left).toBundle();
+                MainActivity.this, R.anim.slide_in_left,
+                R.anim.slide_out_left).toBundle();
         // Transfer anonymous user info
         final UserDAO userDAO = UserDAO.getInstance();
         // Set Anonymous on Global context
@@ -425,8 +448,8 @@ public class MainActivity extends Activity implements OnClickListener {
         selectCountryIntent.putExtra(SelectCountryActivity.USER_FLAG, 0); // User logged in
 
         final Bundle translateBundle = ActivityOptions.makeCustomAnimation(
-                MainActivity.this, R.animator.slide_in_left,
-                R.animator.slide_out_left).toBundle();
+                MainActivity.this, R.anim.slide_in_left,
+                R.anim.slide_out_left).toBundle();
         // Release memory of UI hidden
         startActivity(selectCountryIntent, translateBundle);
         onTrimMemory(TRIM_MEMORY_UI_HIDDEN);

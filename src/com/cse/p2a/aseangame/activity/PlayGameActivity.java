@@ -226,7 +226,7 @@ public class PlayGameActivity extends Activity implements OnClickListener {
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        loadImageButtonAnimations(imgShareOnFacebook, R.animator.activity_finish_fadein);
+        loadImageButtonAnimations(imgShareOnFacebook, R.anim.activity_finish_fadein);
     }
 
     private void playWrongSound() {
@@ -500,7 +500,7 @@ public class PlayGameActivity extends Activity implements OnClickListener {
                             txtBonusScore.setText("+" + points[clicked]);
                         }
                         clicked++;
-                        final Animation bounce = AnimationUtils.loadAnimation(PlayGameActivity.this, R.animator.bounce);
+                        final Animation bounce = AnimationUtils.loadAnimation(PlayGameActivity.this, R.anim.bounce);
                         txtBonusScore.startAnimation(bounce);
                         currentScore = currentScore + bonusScore;
                         // Set question point flag.
@@ -663,8 +663,8 @@ public class PlayGameActivity extends Activity implements OnClickListener {
         try {
             final Intent finishGameIntent = new Intent(this, FinishGameActivity.class);
             final Bundle translateBundle = ActivityOptions.makeCustomAnimation(
-                    PlayGameActivity.this, R.animator.slide_in_left,
-                    R.animator.slide_out_left).toBundle();
+                    PlayGameActivity.this, R.anim.slide_in_left,
+                    R.anim.slide_out_left).toBundle();
             finishGameIntent.putExtra(FinishGameActivity.FINISHED_SESSION_ID_FLAG, sessionId);
             getTimerThead().currentThread().interrupt();
             startActivity(finishGameIntent, translateBundle);
@@ -744,7 +744,7 @@ public class PlayGameActivity extends Activity implements OnClickListener {
                 public void run() {
                     // Share on Facebook button is pressed
                     // Setup pressed animation
-                    loadImageButtonAnimations(v, R.animator.fadein);
+                    loadImageButtonAnimations(v, R.anim.fadein);
                     // Check internet connection
                     if (GeneralHelper.hasConnection()) {
                         // Sharing the question on social networks.
@@ -830,8 +830,8 @@ public class PlayGameActivity extends Activity implements OnClickListener {
                 PlayGameActivity.this.finish();
                 onTrimMemory(TRIM_MEMORY_COMPLETE);
                 // Applied window animation for back action
-                overridePendingTransition(R.animator.slide_in_right,
-                        R.animator.slide_out_right);
+                overridePendingTransition(R.anim.slide_in_right,
+                        R.anim.slide_out_right);
             }
         });
         btnNo.setOnClickListener(new OnClickListener() {

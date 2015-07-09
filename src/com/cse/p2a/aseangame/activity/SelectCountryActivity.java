@@ -9,7 +9,6 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityOptions;
 import android.app.AlertDialog;
-import android.app.DownloadManager;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
@@ -439,7 +438,7 @@ public class SelectCountryActivity extends Activity implements
     private void onClickLocationAnimation(View view) {
 
         final Animation anim = AnimationUtils.loadAnimation(
-                P2AContext.getContext(), R.animator.fadein);
+                P2AContext.getContext(), R.anim.fadein);
 
         final QuickAction quickAction = new QuickAction(
                 getApplicationContext(), QuickAction.VERTICAL);
@@ -565,8 +564,8 @@ public class SelectCountryActivity extends Activity implements
                     PlayGameActivity.class);
 
             final Bundle translateBundle = ActivityOptions.makeCustomAnimation(
-                    SelectCountryActivity.this, R.animator.slide_in_left,
-                    R.animator.slide_out_left).toBundle();
+                    SelectCountryActivity.this, R.anim.slide_in_left,
+                    R.anim.slide_out_left).toBundle();
 
             playGameIntent.putExtra(PlayGameActivity.ID_COUNTRY,
                     getmSelectedCountry().get_country_id());
@@ -756,12 +755,12 @@ public class SelectCountryActivity extends Activity implements
             onClickLocationAnimation(v);
         } else if (v.getId() == btnSyncQuestion.getId()) {
             // Setup sync animation
-            loadButtonAnimation(btnSyncQuestion, R.animator.fadein);
+            loadButtonAnimation(btnSyncQuestion, R.anim.fadein);
             // Start sync question action
             startSyncNewQuestions();
         } else if (v.getId() == btnHelp.getId()) {
             // Setup help animation
-            loadButtonAnimation(btnHelp, R.animator.fadein);
+            loadButtonAnimation(btnHelp, R.anim.fadein);
             // Start help action
             switchFragments();
         } else if (v.getId() == mSelectCountryView.getId()) {
@@ -817,8 +816,8 @@ public class SelectCountryActivity extends Activity implements
         startActivity(i);
         // super.onBackPressed();
         // Applied window animation for back action
-//        overridePendingTransition(R.animator.slide_in_right,
-//                R.animator.slide_out_right);
+//        overridePendingTransition(R.anim.slide_in_right,
+//                R.anim.slide_out_right);
 //        if (mDidSlideOut) {
 //            mDidSlideOut = false;
 //            getFragmentManager().popBackStack();
@@ -1054,8 +1053,8 @@ public class SelectCountryActivity extends Activity implements
                 @Override
                 public void onAnimationEnd(Animator arg0) {
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    transaction.setCustomAnimations(R.animator.slide_fragment_in, 0, 0,
-                            R.animator.slide_fragment_out);
+                    transaction.setCustomAnimations(R.anim.slide_fragment_in, 0, 0,
+                            R.anim.slide_fragment_out);
                     transaction.add(R.id.select_country_container, mTextFragment);
                     transaction.addToBackStack(null);
                     transaction.commit();
@@ -1150,8 +1149,8 @@ public class SelectCountryActivity extends Activity implements
         @Override
         protected void onPreExecute() {
             pd = new ProgressDialog(ctx);
-            pd.setTitle("New Questions");
-            pd.setMessage("Updating in progress...");
+            pd.setTitle(getResources().getString(R.string.title_request_question));
+            pd.setMessage(getResources().getString(R.string.message_request_question));
             pd.setCancelable(false);
             pd.setIndeterminate(false);
             pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
@@ -1187,7 +1186,7 @@ public class SelectCountryActivity extends Activity implements
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                pd.setMessage("In progress...");
+                                pd.setMessage(getResources().getString(R.string.message_request_question));
                                 pd.setMax(questions.size());
                             }
                         });
@@ -1222,6 +1221,7 @@ public class SelectCountryActivity extends Activity implements
             };
             P2AContext.getInstance().addToRequestQueue(request);
 
+            /** OLD CODE - FOR GOOGLE DEFAULT HTTP CLIENT */
 //            final DefaultHttpClient defaultClient = p2aClientServiceProvider.getDefaultClient();
 //            final HttpPost httpPost = new HttpPost(p2aClientServiceProvider.getOriginalServicePath() + "questionsHandler.ashx");
 //            httpPost.setHeader(P2AHttpHeaderConstants.QUESTION_ID, "0");
@@ -1334,8 +1334,8 @@ public class SelectCountryActivity extends Activity implements
         protected void onPreExecute() {
             super.onPreExecute();
             pd = new ProgressDialog(ctx);
-            pd.setTitle("Loading Data");
-            pd.setMessage("In Progress...");
+            pd.setTitle("High scores");
+            pd.setMessage("Loading in progress...");
             pd.setCancelable(true);
             pd.setIndeterminate(false);
             pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
@@ -1367,63 +1367,93 @@ public class SelectCountryActivity extends Activity implements
             // Request GET questions service here.
             final P2AClientServiceProvider p2aClientServiceProvider =
                     P2AClientServiceProvider.getInstance(SelectCountryActivity.this);
-            final DefaultHttpClient defaultClient = p2aClientServiceProvider.getDefaultClient();
-            final HttpPost httpPost = new HttpPost(p2aClientServiceProvider.getOriginalServicePath() + "topScoreAllHandler.ashx");
 
-            try {
-                // Simulate network access.
-                Thread.sleep(300);
-            } catch (InterruptedException e) {
-                return null;
-            }
-            try {
-                final HttpResponse response = defaultClient.execute(httpPost);
+            // Build Volley request
+            final String url = p2aClientServiceProvider.getOriginalServicePath() + "topScoreAllHandler.ashx";
 
-                P2AClientServiceProvider.setResponsedCode(response.getStatusLine().getStatusCode());
-                final HttpEntity httpEntity = response.getEntity();
-                InputStream is;
-                is = httpEntity.getContent();
+            JsonObjectRequest request = new JsonObjectRequest(
+                    Request.Method.POST,
+                    url,
+                    null,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject jsonObject) {
+                            // Parser Questions JSON
+                            leaders = LeaderBoard.parserLeaderBoardJson(jsonObject.toString());
+                            if (!leaders.isEmpty()) {
+                                for (int counter = 0; counter < leaders.size(); counter++) {
+                                    GeneralHelper.sleepForInSecs(200);
+                                    publishProgress(counter);
+                                }
 
-                try {
-                    BufferedReader reader = new BufferedReader(
-                            new InputStreamReader(is, "utf-8"), 8);
-                    StringBuilder sb = new StringBuilder();
-                    String line;
-                    String json;
-                    while ((line = reader.readLine()) != null) {
-                        sb.append(line).append("\n");
-                    }
-                    is.close();
-                    json = sb.toString();
-                    if (!json.isEmpty()) {
-                        // Parser Questions JSON
-                        leaders = LeaderBoard.parserLeaderBoardJson(json);
-                        if (leaders.isEmpty()) {
-                            return false;
-                        } else {
-                            for (int counter = 0; counter < leaders.size(); counter++) {
-                                GeneralHelper.sleepForInSecs(200);
-                                publishProgress(counter);
                             }
-                            return true;
                         }
-                    } else {
-//                        Log.w(MainActivity.class.getCanonicalName(), "No new questions!");
-                        return false;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return false;
-//                    Log.e("Buffer Error", "Error converting result " + e.toString());
-                }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError volleyError) {
+                            volleyError.printStackTrace();
+                        }
+                    });
+            P2AContext.getInstance().addToRequestQueue(request);
+            return true;
 
-            } catch (ClientProtocolException e) {
-                e.printStackTrace();
-                return false;
-            } catch (IOException e) {
-                e.printStackTrace();
-                return false;
-            }
+            /** OLD CODE - FOR GOOGLE DEFAULT HTTP CLIENT */
+//            final DefaultHttpClient defaultClient = p2aClientServiceProvider.getDefaultClient();
+//            final HttpPost httpPost = new HttpPost(p2aClientServiceProvider.getOriginalServicePath() + "topScoreAllHandler.ashx");
+//
+//            try {
+//                // Simulate network access.
+//                Thread.sleep(500);
+//            } catch (InterruptedException e) {
+//                return null;
+//            }
+//            try {
+//                final HttpResponse response = defaultClient.execute(httpPost);
+//
+//                P2AClientServiceProvider.setResponsedCode(response.getStatusLine().getStatusCode());
+//                final HttpEntity httpEntity = response.getEntity();
+//                InputStream is;
+//                is = httpEntity.getContent();
+//
+//                try {
+//                    BufferedReader reader = new BufferedReader(
+//                            new InputStreamReader(is, "utf-8"), 8);
+//                    StringBuilder sb = new StringBuilder();
+//                    String line;
+//                    String json;
+//                    while ((line = reader.readLine()) != null) {
+//                        sb.append(line).append("\n");
+//                    }
+//                    is.close();
+//                    json = sb.toString();
+//                    if (!json.isEmpty()) {
+//                        // Parser Questions JSON
+//                        leaders = LeaderBoard.parserLeaderBoardJson(json);
+//                        if (leaders.isEmpty()) {
+//                            return false;
+//                        } else {
+//                            for (int counter = 0; counter < leaders.size(); counter++) {
+//                                GeneralHelper.sleepForInSecs(200);
+//                                publishProgress(counter);
+//                            }
+//                            return true;
+//                        }
+//                    } else {
+//                        return false;
+//                    }
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                    return false;
+//                }
+//
+//            } catch (ClientProtocolException e) {
+//                e.printStackTrace();
+//                return false;
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//                return false;
+//            }
 
         }
 

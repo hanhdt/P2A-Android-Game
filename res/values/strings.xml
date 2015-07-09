@@ -56,4 +56,7 @@
     <string name="sound_turn_on">Turn on</string>
 
     <string name="pointer_name">pointer</string>
+
+    <string name="title_request_question">Sync New Questions</string>
+    <string name="message_request_question">Updating in progress...</string>
 </resources>

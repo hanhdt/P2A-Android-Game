@@ -197,8 +197,8 @@ public class FinishGameActivity extends Activity implements View.OnClickListener
         finish();
         onTrimMemory(TRIM_MEMORY_COMPLETE);
         // Applied window animation for back action
-        overridePendingTransition(R.animator.slide_in_right,
-                R.animator.slide_out_right);
+        overridePendingTransition(R.anim.slide_in_right,
+                R.anim.slide_out_right);
     }
 
     /**
@@ -238,9 +238,9 @@ public class FinishGameActivity extends Activity implements View.OnClickListener
      * Loading animations for UI Objects through xml
      */
     private void loadAnimations() {
-        loadImageButtonAnimations(imgSharedFacebook, R.animator.activity_finish_fadein);
-        loadImageButtonAnimations(imgSharedP2A, R.animator.activity_finish_fadein);
-        loadImageButtonAnimations(txtTotalScore, R.animator.activity_finish_fadein);
+        loadImageButtonAnimations(imgSharedFacebook, R.anim.activity_finish_fadein);
+        loadImageButtonAnimations(imgSharedP2A, R.anim.activity_finish_fadein);
+        loadImageButtonAnimations(txtTotalScore, R.anim.activity_finish_fadein);
     }
 
     /**
@@ -388,7 +388,7 @@ public class FinishGameActivity extends Activity implements View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == imgSharedFacebook.getId()) {
             // Setup animation
-            loadImageButtonAnimations(view, R.animator.fadein);
+            loadImageButtonAnimations(view, R.anim.fadein);
             // Check internet connection
             if (GeneralHelper.hasConnection()) {
                 shareTotalScore(getResources().getString(R.string.action_share_on_facebook));
@@ -409,7 +409,7 @@ public class FinishGameActivity extends Activity implements View.OnClickListener
 
         } else if (view.getId() == imgSharedP2A.getId()) {
             // Setup animation
-            loadImageButtonAnimations(view, R.animator.fadein);
+            loadImageButtonAnimations(view, R.anim.fadein);
             // Check internet connection
             if (GeneralHelper.hasConnection()) {
                 shareTotalScore(getResources().getString(R.string.action_share_on_p2a));
