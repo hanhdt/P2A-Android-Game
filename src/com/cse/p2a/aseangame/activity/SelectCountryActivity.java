@@ -63,18 +63,10 @@ import com.cse.p2a.aseangame.utils.QuickAction;
 import com.cse.p2a.aseangame.utils.QuickAction.OnActionItemClickListener;
 import com.cse.p2a.aseangame.utils.TextFragment;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -1182,6 +1174,7 @@ public class SelectCountryActivity extends Activity implements
                     // Parser Questions JSON
                     final List<Question> questions = Question.parserQuestionsJson(jsonObject.toString());
                     if (!questions.isEmpty()) {
+                        Toast.makeText(SelectCountryActivity.this, "Get new questions successful!", Toast.LENGTH_LONG).show();
                         // Update dialog's message when is insert data into database.
                         runOnUiThread(new Runnable() {
                             @Override
@@ -1204,6 +1197,8 @@ public class SelectCountryActivity extends Activity implements
                             publishProgress(counter);
                             ++counter;
                         }
+                    } else {
+                        Toast.makeText(SelectCountryActivity.this, "No new questions loaded!", Toast.LENGTH_LONG).show();
                     }
                 }
             }, new Response.ErrorListener() {
@@ -1219,6 +1214,7 @@ public class SelectCountryActivity extends Activity implements
                     return params;
                 }
             };
+
             P2AContext.getInstance().addToRequestQueue(request);
 
             /** OLD CODE - FOR GOOGLE DEFAULT HTTP CLIENT */
@@ -1298,12 +1294,12 @@ public class SelectCountryActivity extends Activity implements
 
         @Override
         protected void onPostExecute(final Boolean aBoolean) {
-            if (aBoolean) {
-                Toast.makeText(SelectCountryActivity.this, "Get new questions successful!", Toast.LENGTH_LONG).show();
-
-            } else {
-                Toast.makeText(SelectCountryActivity.this, "No new questions loaded!", Toast.LENGTH_LONG).show();
-            }
+//            if (aBoolean) {
+//                Toast.makeText(SelectCountryActivity.this, "Get new questions successful!", Toast.LENGTH_LONG).show();
+//
+//            } else {
+//                Toast.makeText(SelectCountryActivity.this, "No new questions loaded!", Toast.LENGTH_LONG).show();
+//            }
             onCancelled();
         }
 
@@ -1315,7 +1311,6 @@ public class SelectCountryActivity extends Activity implements
             showSyncProgress(false);
             SelectCountryActivity.this.recreate();
         }
-
 
     }
 
@@ -1507,77 +1502,129 @@ public class SelectCountryActivity extends Activity implements
                 // Request GET questions service here.
                 final P2AClientServiceProvider p2aClientServiceProvider =
                         P2AClientServiceProvider.getInstance(SelectCountryActivity.this);
-                final DefaultHttpClient defaultClient = p2aClientServiceProvider.getDefaultClient();
-                final HttpPost httpPost = new HttpPost(p2aClientServiceProvider.getOriginalServicePath() + "questionsCountHandler.ashx");
 
-                try {
-                    final HttpResponse response = defaultClient.execute(httpPost);
+                final String url = p2aClientServiceProvider.getOriginalServicePath() + "questionsCountHandler.ashx";
 
-                    P2AClientServiceProvider.setResponsedCode(response.getStatusLine().getStatusCode());
-                    final HttpEntity httpEntity = response.getEntity();
-                    InputStream is;
-                    is = httpEntity.getContent();
+                // Building Volley request
+                JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject jsonObject) {
+                        try {
+                            final JSONArray questionJsonArray = jsonObject.getJSONArray("QuestionsCount");
+                            for (int i = 0; i < questionJsonArray.length(); i++) {
+                                final JSONObject questionObject = questionJsonArray.getJSONObject(i);
+                                questionOnService = questionObject.getInt("question_count");
 
-                    try {
-                        BufferedReader reader = new BufferedReader(
-                                new InputStreamReader(is, "utf-8"), 8);
-                        StringBuilder sb = new StringBuilder();
-                        String line;
-                        String json;
-                        while ((line = reader.readLine()) != null) {
-                            sb.append(line).append("\n");
+                                if (questionOnService > questionInDB) {
+                                    AlertDialog.Builder builder1 = new AlertDialog.Builder(ctx);
+                                    builder1.setMessage("There are new " + (questionOnService - questionInDB) + " question.\n Do you want to update?");
+                                    builder1.setCancelable(true);
+                                    builder1.setPositiveButton("Yes",
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int id) {
+                                                    mSyncQuestionTask = new SyncQuestionTask(SelectCountryActivity.this);
+                                                    mSyncQuestionTask.execute();
+                                                    dialog.cancel();
+                                                }
+                                            });
+                                    builder1.setNegativeButton("No",
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int id) {
+                                                    dialog.cancel();
+                                                }
+                                            });
+                                    AlertDialog alert11 = builder1.create();
+                                    alert11.show();
+                                }
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
-                        is.close();
-                        json = sb.toString();
-                        final JSONObject jsonObject = new JSONObject(json);
-                        final JSONArray questionJsonArray = jsonObject.getJSONArray("QuestionsCount");
-                        for (int i = 0; i < questionJsonArray.length(); i++) {
-                            final JSONObject questionObject = questionJsonArray.getJSONObject(i);
-                            questionOnService = questionObject.getInt("question_count");
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        return false;
                     }
-
-                } catch (ClientProtocolException e) {
-                    e.printStackTrace();
-                    return false;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    return false;
-                }
-
-                return true;
-            } else
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        volleyError.printStackTrace();
+                    }
+                });
+            } else {
                 return false;
+            }
+
+            return true;
+
+            /** OLD APPROACH - GOOGLE DEFAULT HTTP CLIENT */
+//                final DefaultHttpClient defaultClient = p2aClientServiceProvider.getDefaultClient();
+//                final HttpPost httpPost = new HttpPost(p2aClientServiceProvider.getOriginalServicePath() + "questionsCountHandler.ashx");
+//
+//                try {
+//                    final HttpResponse response = defaultClient.execute(httpPost);
+//
+//                    P2AClientServiceProvider.setResponsedCode(response.getStatusLine().getStatusCode());
+//                    final HttpEntity httpEntity = response.getEntity();
+//                    InputStream is;
+//                    is = httpEntity.getContent();
+//
+//                    try {
+//                        BufferedReader reader = new BufferedReader(
+//                                new InputStreamReader(is, "utf-8"), 8);
+//                        StringBuilder sb = new StringBuilder();
+//                        String line;
+//                        String json;
+//                        while ((line = reader.readLine()) != null) {
+//                            sb.append(line).append("\n");
+//                        }
+//                        is.close();
+//                        json = sb.toString();
+//                        final JSONObject jsonObject = new JSONObject(json);
+//                        final JSONArray questionJsonArray = jsonObject.getJSONArray("QuestionsCount");
+//                        for (int i = 0; i < questionJsonArray.length(); i++) {
+//                            final JSONObject questionObject = questionJsonArray.getJSONObject(i);
+//                            questionOnService = questionObject.getInt("question_count");
+//                        }
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                        return false;
+//                    }
+//
+//                } catch (ClientProtocolException e) {
+//                    e.printStackTrace();
+//                    return false;
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                    return false;
+//                }
+//
+//                return true;
+//            } else
+//                return false;
         }
 
         @Override
         protected void onPostExecute(final Boolean aBoolean) {
-            if (aBoolean) {
-                if (questionOnService > questionInDB) {
-                    AlertDialog.Builder builder1 = new AlertDialog.Builder(ctx);
-                    builder1.setMessage("There are new " + (questionOnService - questionInDB) + " question.\n Do you want to update?");
-                    builder1.setCancelable(true);
-                    builder1.setPositiveButton("Yes",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    mSyncQuestionTask = new SyncQuestionTask(SelectCountryActivity.this);
-                                    mSyncQuestionTask.execute();
-                                    dialog.cancel();
-                                }
-                            });
-                    builder1.setNegativeButton("No",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    dialog.cancel();
-                                }
-                            });
-                    AlertDialog alert11 = builder1.create();
-                    alert11.show();
-                }
-            }
+//            if (aBoolean) {
+//                if (questionOnService > questionInDB) {
+//                    AlertDialog.Builder builder1 = new AlertDialog.Builder(ctx);
+//                    builder1.setMessage("There are new " + (questionOnService - questionInDB) + " question.\n Do you want to update?");
+//                    builder1.setCancelable(true);
+//                    builder1.setPositiveButton("Yes",
+//                            new DialogInterface.OnClickListener() {
+//                                public void onClick(DialogInterface dialog, int id) {
+//                                    mSyncQuestionTask = new SyncQuestionTask(SelectCountryActivity.this);
+//                                    mSyncQuestionTask.execute();
+//                                    dialog.cancel();
+//                                }
+//                            });
+//                    builder1.setNegativeButton("No",
+//                            new DialogInterface.OnClickListener() {
+//                                public void onClick(DialogInterface dialog, int id) {
+//                                    dialog.cancel();
+//                                }
+//                            });
+//                    AlertDialog alert11 = builder1.create();
+//                    alert11.show();
+//                }
+//            }
             onCancelled();
         }
 
